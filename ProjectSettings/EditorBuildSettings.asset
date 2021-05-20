@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/A_Blank/Scenes/MoveBoyMove.unity
     guid: d0095ca7fce462f4ba3e6055ff49cb7d
+  - enabled: 1
+    path: Assets/A_Blank/Scenes/Victory.unity
+    guid: c05c16c8cfc72b94cae54909b7a84e3c
   m_configObjects: {}
