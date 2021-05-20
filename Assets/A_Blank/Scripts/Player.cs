@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private float moveSpeed;
 
 
-    private CharacterController cc;
+    [HideInInspector] public CharacterController cc;
     private float horizontalInput, verticalInput;
     private Vector3 yVel;
 
