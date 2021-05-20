@@ -19,10 +19,14 @@ public class Player : MonoBehaviour
     [SerializeField] Collider normalTrigger;
     [SerializeField] float moveSpeedFast = 20;
     [SerializeField] Collider fastTrigger;
+    private float slowMax;
+    private float normalMax;
+    private float fastMax;
 
 
     private int movementMode;
     private float moveSpeed;
+    private float moveClamp;
 
 
     [HideInInspector] public CharacterController cc;
@@ -36,13 +40,21 @@ public class Player : MonoBehaviour
         cc = GetComponent<CharacterController>();
         UIManager.instance.InitilizeUI();
         
+        slowMax = (((moveSpeedSlow/10)) * 0.2f);
+        Debug.Log(slowMax);
+        normalMax = (((moveSpeedNormal/10)) * 0.2f);
+        Debug.Log(normalMax);
+        fastMax = (((moveSpeedFast/10)) * 0.2f) + 0.1f;
+        Debug.Log(fastMax);
+
         movementMode = 0;
         moveSpeed = moveSpeedSlow;
+        moveClamp = slowMax;
         UIManager.instance.UpdateMoveMode("Slow");
         slowTrigger.gameObject.SetActive(true);
         normalTrigger.gameObject.SetActive(false);
         fastTrigger.gameObject.SetActive(false);
-
+        
 
         yVel = Vector3.zero;
         if(gravity > 0) {
@@ -50,23 +62,34 @@ public class Player : MonoBehaviour
         }
     }
 
+    private float delta;
+    private float previous;
+
     private void Update() {
+        delta = Time.unscaledTime - previous;
+        previous = Time.unscaledTime;
+
         if(!GameManager.instance.paused && !lockMovment) {
             if(joystick.Horizontal > moveThreshold)
-                horizontalInput = moveSpeed * Time.deltaTime;
+                horizontalInput = moveSpeed * delta;
             else if(joystick.Horizontal < -moveThreshold)
-                horizontalInput = -moveSpeed * Time.deltaTime;
+                horizontalInput = -moveSpeed * delta;
             else
                 horizontalInput = 0;
 
             if(joystick.Vertical > moveThreshold)
-                verticalInput = moveSpeed * Time.deltaTime;
+                verticalInput = moveSpeed * delta;
             else if(joystick.Vertical < -moveThreshold)
-                verticalInput = -moveSpeed * Time.deltaTime;
+                verticalInput = -moveSpeed * delta;
             else
                 verticalInput = 0;
         } else if(horizontalInput != 0 || verticalInput != 0) {
             horizontalInput = verticalInput = 0;
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Time.timeScale = 1;
         }
 
         Movement();
@@ -74,16 +97,19 @@ public class Player : MonoBehaviour
 
     private void Movement() {
         Vector3 move = (transform.forward * verticalInput + transform.right * horizontalInput);
+        //move.x = Mathf.Clamp(move.x, -moveClamp, moveClamp);
+        //move.z = Mathf.Clamp(move.z, -moveClamp, moveClamp);
+        Debug.Log(move);
         cc.Move(move);
 
         if(move != Vector3.zero)
-            mesh.rotation = Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(move, Vector3.up), Time.deltaTime * rotationSpeed);
+            mesh.rotation = Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(move, Vector3.up), delta * rotationSpeed);
 
         //^ Grav Sim
         if (cc.isGrounded && yVel.y < 0)
             yVel.y = -2;
-        yVel.y += gravity * Time.deltaTime;
-        cc.Move(yVel * Time.deltaTime);
+        yVel.y += gravity * delta;
+        cc.Move(yVel * delta);
     }
 
     public void Kill() {
@@ -97,7 +123,7 @@ public class Player : MonoBehaviour
     }
 
     public void UseWatch() {
-        //! Stop Watch Stuff
+        Time.timeScale = 0;
     }
 
     public void ChangeMovement() {
@@ -107,6 +133,7 @@ public class Player : MonoBehaviour
 
         if(movementMode == 0) {
             moveSpeed = moveSpeedSlow;
+            moveClamp = slowMax;
             UIManager.instance.UpdateMoveMode("Slow");
             if(!lockMovment) {
                 slowTrigger.gameObject.SetActive(true);
@@ -115,6 +142,7 @@ public class Player : MonoBehaviour
             }
         } else if (movementMode == 1) {
             moveSpeed = moveSpeedNormal;
+            moveClamp = normalMax;
             UIManager.instance.UpdateMoveMode("Normal");
             if(!lockMovment) {
                 normalTrigger.gameObject.SetActive(true);
@@ -123,6 +151,7 @@ public class Player : MonoBehaviour
             }
         } else if (movementMode == 2) {
             moveSpeed = moveSpeedFast;
+            moveClamp = fastMax;
             UIManager.instance.UpdateMoveMode("Fast");
             if(!lockMovment) {
                 fastTrigger.gameObject.SetActive(true);
