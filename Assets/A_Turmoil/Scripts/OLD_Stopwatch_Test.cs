@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stopwatch_Test : MonoBehaviour
+public class OLD_Stopwatch_Test : MonoBehaviour
 {
     bool isFreezing;
 
