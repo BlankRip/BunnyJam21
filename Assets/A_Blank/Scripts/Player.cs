@@ -6,7 +6,7 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] Transform mesh;
+    public Transform mesh;
     [SerializeField] float rotationSpeed = 10;
     [SerializeField] float gravity = -9.8f;
     [SerializeField] Joystick joystick;
@@ -133,12 +133,15 @@ public class Player : MonoBehaviour
     }
 
     public void EnterHide() {
+        mesh.gameObject.SetActive(false);
         lockMovment = true;
         fastTrigger.gameObject.SetActive(false);
         normalTrigger.gameObject.SetActive(false);
         slowTrigger.gameObject.SetActive(false);
     }
     public void ExitHide() {
+        mesh.gameObject.SetActive(true);
+        lockMovment = false;
         if(movementMode == 0)
             slowTrigger.gameObject.SetActive(true);
         else if (movementMode == 1)
