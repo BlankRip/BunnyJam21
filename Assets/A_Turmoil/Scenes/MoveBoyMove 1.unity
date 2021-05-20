@@ -1000,6 +1000,19 @@ MonoBehaviour:
   freezeCooldown: 0
   freezeCooldownTime: 0
   freezeTime: 0
+--- !u!114 &322435635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322435631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00f18a7c05dcf74f8f4879f43388083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
 --- !u!1 &352903668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1564,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 9061975935185711517}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322435631}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90d3be3e1f1d6d14bb6c044aa6029bb7, type: 3}
   m_Name: 
@@ -4556,6 +4569,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 2075924310}
+    - target: {fileID: 9061975935101510724, guid: b36b4b7ec741935459fe8015255bc3a6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9061975935101510724, guid: b36b4b7ec741935459fe8015255bc3a6, type: 3}
       propertyPath: currentSpeedText
       value: 

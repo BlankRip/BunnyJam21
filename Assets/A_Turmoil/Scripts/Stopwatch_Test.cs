@@ -16,6 +16,7 @@ public class Stopwatch_Test : MonoBehaviour
 
     bool onerun = false;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +33,8 @@ public class Stopwatch_Test : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StopWatchFreeze();
+
+            Time.timeScale = 0;
         }
 
         if (freezeCooldown >= 0)
@@ -42,6 +45,7 @@ public class Stopwatch_Test : MonoBehaviour
                 freezeCooldown = 0;
             }
         }
+
 
         if (isFreezing == true)
         {

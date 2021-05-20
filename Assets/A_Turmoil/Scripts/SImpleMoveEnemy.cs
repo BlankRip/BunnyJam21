@@ -26,7 +26,7 @@ public class SImpleMoveEnemy : MonoBehaviour
         else
         {
             dir = player.transform.position - transform.position;
-            transform.LookAt(player.transform.position);
+            transform.LookAt(player.transform.position * Time.deltaTime);
             transform.position += (transform.forward * speed) * Time.deltaTime;
         }
     }
