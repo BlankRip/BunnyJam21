@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button watchButton;
     [SerializeField] Button killButton;
     [SerializeField] Button interactButton;
+    [SerializeField] GameObject endScreen;
+    [SerializeField] GameObject victoryScreen;
 
     private void Awake() {
         if(instance ==null)
@@ -46,5 +48,14 @@ public class UIManager : MonoBehaviour
     }
     public void DisableInteract() {
         interactButton.interactable = false;
+    }
+
+    public void ShowEnd() {
+        Time.timeScale = 0;
+        endScreen.SetActive(true);
+    }
+    public void ShowVictory() {
+        Time.timeScale = 0;
+        victoryScreen.SetActive(true);
     }
 }
