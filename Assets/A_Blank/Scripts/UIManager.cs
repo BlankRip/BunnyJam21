@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     [SerializeField] TextMeshProUGUI moveModeText;
     [SerializeField] Button watchButton;
+    [SerializeField] Image watchFill;
     [SerializeField] Button killButton;
     [SerializeField] Button interactButton;
     [SerializeField] GameObject endScreen;
@@ -34,6 +35,9 @@ public class UIManager : MonoBehaviour
     }
     public void WatchUsed() {
         watchButton.interactable = false;
+    }
+    public void WatchRecovering(float max, float current) {
+        watchFill.fillAmount = Mathf.InverseLerp(max, 0, current);
     }
 
     public void EnableKill() {

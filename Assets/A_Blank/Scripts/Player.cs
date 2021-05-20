@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float gravity = -9.8f;
     [SerializeField] Joystick joystick;
     [SerializeField] [Range(0, 1)] float moveThreshold = 0.5f;
+    [SerializeField] float watchCooldown = 10;
 
     [Header("Movment Modes")]
     [SerializeField] float moveSpeedSlow = 10;
@@ -27,6 +28,10 @@ public class Player : MonoBehaviour
     private int movementMode;
     private float moveSpeed;
     private float moveClamp;
+    private float delta;
+    private float previous;
+    private float cooldownRef;
+    private bool watchUsed;
 
 
     [HideInInspector] public CharacterController cc;
@@ -62,9 +67,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private float delta;
-    private float previous;
-
     private void Update() {
         delta = Time.unscaledTime - previous;
         previous = Time.unscaledTime;
@@ -87,9 +89,15 @@ public class Player : MonoBehaviour
             horizontalInput = verticalInput = 0;
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Time.timeScale = 1;
+        if(watchUsed) {
+            cooldownRef += delta;
+            UIManager.instance.WatchRecovering(watchCooldown, cooldownRef);
+            if(cooldownRef >= watchCooldown) {
+                Time.timeScale = 1;
+                cooldownRef = 0;
+                UIManager.instance.WatchReady();
+                watchUsed = false;
+            }
         }
 
         Movement();
@@ -97,8 +105,8 @@ public class Player : MonoBehaviour
 
     private void Movement() {
         Vector3 move = (transform.forward * verticalInput + transform.right * horizontalInput);
-        //move.x = Mathf.Clamp(move.x, -moveClamp, moveClamp);
-        //move.z = Mathf.Clamp(move.z, -moveClamp, moveClamp);
+        move.x = Mathf.Clamp(move.x, -moveClamp, moveClamp);
+        move.z = Mathf.Clamp(move.z, -moveClamp, moveClamp);
         Debug.Log(move);
         cc.Move(move);
 
@@ -124,6 +132,8 @@ public class Player : MonoBehaviour
 
     public void UseWatch() {
         Time.timeScale = 0;
+        UIManager.instance.WatchUsed();
+        watchUsed = true;
     }
 
     public void ChangeMovement() {
