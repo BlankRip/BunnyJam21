@@ -40,7 +40,7 @@ public class SimplePlayerMove : MonoBehaviour
             Vector3 finalVec = transform.right * speed * (Time.unscaledDeltaTime * (1 + (1.0f - Time.timeScale)));
             cc.Move(finalVec);
         }
-
+        /*
         if(Input.GetMouseButtonDown(0))
         {
             Time.timeScale = 0;
@@ -50,5 +50,6 @@ public class SimplePlayerMove : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+        */
     }
 }

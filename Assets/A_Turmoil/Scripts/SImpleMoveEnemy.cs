@@ -25,9 +25,22 @@ public class SImpleMoveEnemy : MonoBehaviour
         }
         else
         {
+            /*
             dir = player.transform.position - transform.position;
-            transform.LookAt(player.transform.position * Time.deltaTime);
-            transform.position += (transform.forward * speed) * Time.deltaTime;
+            dir.y = 0;
+            transform.LookAt(player.transform.position * Time.timeScale);
+            //transform.rotation = Quaternion.LookRotation(dir,transform.up);
+            //transform.position += (dir.normalized * speed) * Time.deltaTime;
+            */
+
+            
+            Vector3 lookVector = player.transform.position - transform.position;
+            lookVector.y = 0;
+            Quaternion rot = Quaternion.LookRotation(lookVector);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10 * Time.deltaTime);
+            transform.position += (lookVector.normalized * speed) * Time.deltaTime;
+            
+            Debug.DrawRay(transform.position, lookVector, Color.green);
         }
     }
 

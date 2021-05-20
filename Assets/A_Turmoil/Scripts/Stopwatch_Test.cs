@@ -33,13 +33,11 @@ public class Stopwatch_Test : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StopWatchFreeze();
-
-            Time.timeScale = 0;
         }
 
         if (freezeCooldown >= 0)
         {
-            freezeCooldown -= Time.deltaTime;
+            freezeCooldown -= Time.unscaledDeltaTime;
             if (freezeCooldown <= 0)
             {
                 freezeCooldown = 0;
@@ -51,25 +49,31 @@ public class Stopwatch_Test : MonoBehaviour
         {
             if (onerun == false)
             {
+                /*
                 enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 for (int i = 0; i < enemies.Length; i++)
                 {
                     enemies[i].GetComponent<SImpleMoveEnemy>().freezeEnemy = true;
                 }
+                */
                 freezeTimer = freezeTime;
                 onerun = true;
             }
 
-            freezeTimer -= Time.deltaTime;
+            Time.timeScale = 0;
+            freezeTimer -= Time.unscaledDeltaTime;
             if (freezeTimer <= 0)
             {
+                /*
                 for (int i = 0; i < enemies.Length; i++)
                 {
                     enemies[i].GetComponent<SImpleMoveEnemy>().freezeEnemy = false;
                 }
+                */
                 isFreezing = false;
                 onerun = false;
                 freezeTimer = freezeTime;
+                Time.timeScale = 1;
             }
             else
             {
