@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     [SerializeField] Collider normalTrigger;
     [SerializeField] float moveSpeedFast = 20;
     [SerializeField] Collider fastTrigger;
-    [SerializeField] TextMeshProUGUI currentSpeedText;
 
 
     private int movementMode;
@@ -30,13 +29,15 @@ public class Player : MonoBehaviour
     private float horizontalInput, verticalInput;
     private Vector3 yVel;
 
+    [HideInInspector] public Interactable interactable;
+
     private void Start() {
         cc = GetComponent<CharacterController>();
-        
+        UIManager.instance.InitilizeUI();
         
         movementMode = 0;
         moveSpeed = moveSpeedSlow;
-        currentSpeedText.SetText("Slow");
+        UIManager.instance.UpdateMoveMode("Slow");
         slowTrigger.gameObject.SetActive(true);
         normalTrigger.gameObject.SetActive(false);
         fastTrigger.gameObject.SetActive(false);
@@ -80,6 +81,18 @@ public class Player : MonoBehaviour
         cc.Move(yVel * Time.deltaTime);
     }
 
+    public void Kill() {
+        //! Kill Here
+    }
+
+    public void Interact() {
+        //! Interact
+    }
+
+    public void UseWatch() {
+        //! Stop Watch Stuff
+    }
+
     public void ChangeMovement() {
         movementMode++;
         if(movementMode > 2)
@@ -87,19 +100,19 @@ public class Player : MonoBehaviour
 
         if(movementMode == 0) {
             moveSpeed = moveSpeedSlow;
-            currentSpeedText.SetText("Slow");
+            UIManager.instance.UpdateMoveMode("Slow");
             slowTrigger.gameObject.SetActive(true);
             normalTrigger.gameObject.SetActive(false);
             fastTrigger.gameObject.SetActive(false);
         } else if (movementMode == 1) {
             moveSpeed = moveSpeedNormal;
-            currentSpeedText.SetText("Normal");
+            UIManager.instance.UpdateMoveMode("Normal");
             normalTrigger.gameObject.SetActive(true);
             slowTrigger.gameObject.SetActive(false);
             fastTrigger.gameObject.SetActive(false);
         } else if (movementMode == 2) {
             moveSpeed = moveSpeedFast;
-            currentSpeedText.SetText("Fast");
+            UIManager.instance.UpdateMoveMode("Fast");
             fastTrigger.gameObject.SetActive(true);
             normalTrigger.gameObject.SetActive(false);
             slowTrigger.gameObject.SetActive(false);
