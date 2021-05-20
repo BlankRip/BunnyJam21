@@ -1,15 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] Transform mesh;
-    [SerializeField] float moveSpeed = 10;
     [SerializeField] float rotationSpeed = 10;
     [SerializeField] float gravity = -9.8f;
     [SerializeField] Joystick joystick;
     [SerializeField] [Range(0, 1)] float moveThreshold = 0.5f;
+
+    [Header("Movment Modes")]
+    [SerializeField] float moveSpeedSlow = 10;
+    [SerializeField] Collider slowTrigger;
+    [SerializeField] float moveSpeedNormal = 15;
+    [SerializeField] Collider normalTrigger;
+    [SerializeField] float moveSpeedFast = 20;
+    [SerializeField] Collider fastTrigger;
+    [SerializeField] TextMeshProUGUI currentSpeedText;
+
+
+    private int movementMode;
+    private float moveSpeed;
+
 
     private CharacterController cc;
     private float horizontalInput, verticalInput;
@@ -17,6 +32,16 @@ public class Player : MonoBehaviour
 
     private void Start() {
         cc = GetComponent<CharacterController>();
+        
+        
+        movementMode = 0;
+        moveSpeed = moveSpeedSlow;
+        currentSpeedText.SetText("Slow");
+        slowTrigger.gameObject.SetActive(true);
+        normalTrigger.gameObject.SetActive(false);
+        fastTrigger.gameObject.SetActive(false);
+
+
         yVel = Vector3.zero;
         if(gravity > 0) {
             gravity = gravity * -1;
@@ -53,5 +78,31 @@ public class Player : MonoBehaviour
             yVel.y = -2;
         yVel.y += gravity * Time.deltaTime;
         cc.Move(yVel * Time.deltaTime);
+    }
+
+    public void ChangeMovement() {
+        movementMode++;
+        if(movementMode > 2)
+            movementMode = 0;
+
+        if(movementMode == 0) {
+            moveSpeed = moveSpeedSlow;
+            currentSpeedText.SetText("Slow");
+            slowTrigger.gameObject.SetActive(true);
+            normalTrigger.gameObject.SetActive(false);
+            fastTrigger.gameObject.SetActive(false);
+        } else if (movementMode == 1) {
+            moveSpeed = moveSpeedNormal;
+            currentSpeedText.SetText("Normal");
+            normalTrigger.gameObject.SetActive(true);
+            slowTrigger.gameObject.SetActive(false);
+            fastTrigger.gameObject.SetActive(false);
+        } else if (movementMode == 2) {
+            moveSpeed = moveSpeedFast;
+            currentSpeedText.SetText("Fast");
+            fastTrigger.gameObject.SetActive(true);
+            normalTrigger.gameObject.SetActive(false);
+            slowTrigger.gameObject.SetActive(false);
+        }
     }
 }
