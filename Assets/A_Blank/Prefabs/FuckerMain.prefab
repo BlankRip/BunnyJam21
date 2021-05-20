@@ -121,12 +121,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835043168229668620}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
-  m_Father: {fileID: 9061975935101510726}
-  m_RootOrder: 2
+  m_Father: {fileID: 9061975935874163556}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7507421921586329640
 MeshFilter:
@@ -216,12 +216,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5679740083567763365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 14, y: 14, z: 14}
   m_Children: []
-  m_Father: {fileID: 9061975935101510726}
-  m_RootOrder: 4
+  m_Father: {fileID: 9061975935874163556}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9021985256675625086
 MeshFilter:
@@ -311,12 +311,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6649964244376829369}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
-  m_Father: {fileID: 9061975935101510726}
-  m_RootOrder: 3
+  m_Father: {fileID: 9061975935874163556}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6309495056269174766
 MeshFilter:
@@ -411,9 +411,6 @@ Transform:
   m_Children:
   - {fileID: 9061975935874163556}
   - {fileID: 9061975935993276362}
-  - {fileID: 8912335568354768352}
-  - {fileID: 9070683231850356718}
-  - {fileID: 6252111660578232374}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -458,7 +455,7 @@ MonoBehaviour:
   normalTrigger: {fileID: 5742755534027029812}
   moveSpeedFast: 20
   fastTrigger: {fileID: 6202588197034856990}
-  currentSpeedText: {fileID: 0}
+  interactable: {fileID: 0}
 --- !u!1 &9061975935874163557
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +486,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7015363092349162406}
+  - {fileID: 8912335568354768352}
+  - {fileID: 9070683231850356718}
+  - {fileID: 6252111660578232374}
   m_Father: {fileID: 9061975935101510726}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

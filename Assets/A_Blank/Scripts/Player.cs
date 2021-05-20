@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     private Vector3 yVel;
 
     [HideInInspector] public Interactable interactable;
+    [HideInInspector] public bool lockMovment;
 
     private void Start() {
         cc = GetComponent<CharacterController>();
@@ -50,19 +51,23 @@ public class Player : MonoBehaviour
     }
 
     private void Update() {
-        if(joystick.Horizontal > moveThreshold)
-            horizontalInput = moveSpeed * Time.deltaTime;
-        else if(joystick.Horizontal < -moveThreshold)
-            horizontalInput = -moveSpeed * Time.deltaTime;
-        else
-            horizontalInput = 0;
+        if(!GameManager.instance.paused && !lockMovment) {
+            if(joystick.Horizontal > moveThreshold)
+                horizontalInput = moveSpeed * Time.deltaTime;
+            else if(joystick.Horizontal < -moveThreshold)
+                horizontalInput = -moveSpeed * Time.deltaTime;
+            else
+                horizontalInput = 0;
 
-        if(joystick.Vertical > moveThreshold)
-            verticalInput = moveSpeed * Time.deltaTime;
-        else if(joystick.Vertical < -moveThreshold)
-            verticalInput = -moveSpeed * Time.deltaTime;
-        else
-            verticalInput = 0;
+            if(joystick.Vertical > moveThreshold)
+                verticalInput = moveSpeed * Time.deltaTime;
+            else if(joystick.Vertical < -moveThreshold)
+                verticalInput = -moveSpeed * Time.deltaTime;
+            else
+                verticalInput = 0;
+        } else if(horizontalInput != 0 || verticalInput != 0) {
+            horizontalInput = verticalInput = 0;
+        }
 
         Movement();
     }
@@ -82,11 +87,13 @@ public class Player : MonoBehaviour
     }
 
     public void Kill() {
-        //! Kill Here
+        if(!lockMovment) {
+            //! Kill Here
+        }
     }
 
     public void Interact() {
-        //! Interact
+        interactable.OnInteraction();
     }
 
     public void UseWatch() {
@@ -101,21 +108,42 @@ public class Player : MonoBehaviour
         if(movementMode == 0) {
             moveSpeed = moveSpeedSlow;
             UIManager.instance.UpdateMoveMode("Slow");
-            slowTrigger.gameObject.SetActive(true);
-            normalTrigger.gameObject.SetActive(false);
-            fastTrigger.gameObject.SetActive(false);
+            if(!lockMovment) {
+                slowTrigger.gameObject.SetActive(true);
+                normalTrigger.gameObject.SetActive(false);
+                fastTrigger.gameObject.SetActive(false);
+            }
         } else if (movementMode == 1) {
             moveSpeed = moveSpeedNormal;
             UIManager.instance.UpdateMoveMode("Normal");
-            normalTrigger.gameObject.SetActive(true);
-            slowTrigger.gameObject.SetActive(false);
-            fastTrigger.gameObject.SetActive(false);
+            if(!lockMovment) {
+                normalTrigger.gameObject.SetActive(true);
+                slowTrigger.gameObject.SetActive(false);
+                fastTrigger.gameObject.SetActive(false);
+            }
         } else if (movementMode == 2) {
             moveSpeed = moveSpeedFast;
             UIManager.instance.UpdateMoveMode("Fast");
-            fastTrigger.gameObject.SetActive(true);
-            normalTrigger.gameObject.SetActive(false);
-            slowTrigger.gameObject.SetActive(false);
+            if(!lockMovment) {
+                fastTrigger.gameObject.SetActive(true);
+                normalTrigger.gameObject.SetActive(false);
+                slowTrigger.gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void EnterHide() {
+        lockMovment = true;
+        fastTrigger.gameObject.SetActive(false);
+        normalTrigger.gameObject.SetActive(false);
+        slowTrigger.gameObject.SetActive(false);
+    }
+    public void ExitHide() {
+        if(movementMode == 0)
+            slowTrigger.gameObject.SetActive(true);
+        else if (movementMode == 1)
+            normalTrigger.gameObject.SetActive(true);
+        else if (movementMode == 2)
+            fastTrigger.gameObject.SetActive(true);
     }
 }
