@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7507421921586329640}
   - component: {fileID: 2580409890170234611}
   - component: {fileID: 862880633127701362}
+  - component: {fileID: 3308561237265097334}
   m_Layer: 0
   m_Name: SlowT
   m_TagString: Untagged
@@ -190,6 +191,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3308561237265097334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835043168229668620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844180361084c24ab40450c568be6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5679740083567763365
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +215,7 @@ GameObject:
   - component: {fileID: 9021985256675625086}
   - component: {fileID: 1283444016947907055}
   - component: {fileID: 6202588197034856990}
+  - component: {fileID: 6658945565954087391}
   m_Layer: 0
   m_Name: FastT
   m_TagString: Untagged
@@ -285,6 +299,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6658945565954087391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679740083567763365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844180361084c24ab40450c568be6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6649964244376829369
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +323,7 @@ GameObject:
   - component: {fileID: 6309495056269174766}
   - component: {fileID: 7260757161820958834}
   - component: {fileID: 5742755534027029812}
+  - component: {fileID: 356877259946804259}
   m_Layer: 0
   m_Name: NormalT
   m_TagString: Untagged
@@ -380,6 +407,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &356877259946804259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6649964244376829369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844180361084c24ab40450c568be6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9061975935101510725
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +430,7 @@ GameObject:
   - component: {fileID: 9061975935101510726}
   - component: {fileID: 9061975935101510727}
   - component: {fileID: 9061975935101510724}
+  - component: {fileID: 6064225175989537463}
   m_Layer: 0
   m_Name: FuckerMain
   m_TagString: Player
@@ -449,13 +489,31 @@ MonoBehaviour:
   gravity: -9.8
   joystick: {fileID: 0}
   moveThreshold: 0.5
+  watchCooldown: 10
   moveSpeedSlow: 10
   slowTrigger: {fileID: 862880633127701362}
   moveSpeedNormal: 15
   normalTrigger: {fileID: 5742755534027029812}
   moveSpeedFast: 20
   fastTrigger: {fileID: 6202588197034856990}
+  cc: {fileID: 0}
   interactable: {fileID: 0}
+--- !u!54 &6064225175989537463
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061975935101510725}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9061975935874163557
 GameObject:
   m_ObjectHideFlags: 0
