@@ -20,6 +20,8 @@ public class Chase : AI_State
         ai.agent.SetDestination(chasePos);
         searchingFor = 0;
         caughtPlayer = false;
+        ai.myAnimator.SetBool("idle", false);
+        ai.myAnimator.SetBool("run", true);
     }
 
     public override void Exicute(AI ai) {
@@ -28,6 +30,13 @@ public class Chase : AI_State
             if(distance <= catchDistance * catchDistance) {
                 GameManager.instance.playerScript.LockMovement();
                 GameManager.instance.playerScript.Zap();
+                ai.agent.enabled = false;
+                Vector3 pos = new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, 
+                ai.gameObject.transform.position.y, GameManager.instance.playerScript.gameObject.transform.position.z + 0.5f);
+                ai.transform.LookAt(new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, ai.gameObject.transform.rotation.y, GameManager.instance.playerScript.gameObject.transform.position.z));
+                ai.gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+                ai.gameObject.transform.position = pos;
+                ai.myAnimator.SetTrigger("attack");
                 caughtPlayer = true;
                 return;
             }

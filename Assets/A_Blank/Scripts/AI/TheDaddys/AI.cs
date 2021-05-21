@@ -119,6 +119,8 @@ public class AI : MonoBehaviour
     public void Death() {
         UIManager.instance.DisableKill();
         dead = true;
+        myAnimator.SetBool("idle", false);
+        myAnimator.SetTrigger("death");
         StartCoroutine(Dieing());
     }
 

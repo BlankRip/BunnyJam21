@@ -16,6 +16,7 @@ public class Idle : AI_State
         } else {
             //ai.myAnimator.SetBool("idle", true);
         }
+        ai.myAnimator.SetBool("idle", true);
     }
 
     public override void Exicute(AI ai) {

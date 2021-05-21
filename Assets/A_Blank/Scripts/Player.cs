@@ -261,11 +261,12 @@ public class Player : MonoBehaviour
     IEnumerator EndGame() {
         if(!dead)
         {   
-            myAnimator.SetTrigger("death"); 
-            myAnimator.SetBool("idle", false);
             dead = true;
+            yield return new WaitForSeconds(0.7f);
+            myAnimator.SetBool("idle", false);
+            myAnimator.SetTrigger("death"); 
+            yield return new WaitForSeconds(1.145f);
+            UIManager.instance.ShowEnd();
         }
-        yield return new WaitForSeconds(1);
-        UIManager.instance.ShowEnd();
     }
 }

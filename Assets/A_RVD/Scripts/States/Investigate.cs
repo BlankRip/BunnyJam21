@@ -8,6 +8,8 @@ public class Investigate : AI_State
     public override void InitilizeState(AI ai) {
         ai.agent.speed = ai.walkSpeed;
         ai.agent.SetDestination(ai.pointNoted);
+        ai.myAnimator.SetBool("idle", false);
+        ai.myAnimator.SetBool("walk", true);
     }
 
     public override void Exicute(AI ai) {
