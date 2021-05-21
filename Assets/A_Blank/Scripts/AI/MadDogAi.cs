@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalAI : AI
+public class MadDogAi : AI
 {
     Investigate investigateState;
 
@@ -32,8 +32,12 @@ public class NormalAI : AI
 
     public override void RecievedPlayerPosition(Vector3 pos, bool isPlayer) {
         if(!inChaseState) {
-            base.RecievedPlayerPosition(pos, isPlayer);
-            SwitchState(investigateState);
+            if(isPlayer) {
+                SwitchState(chaseState);
+            } else {
+                base.RecievedPlayerPosition(pos, isPlayer);
+                SwitchState(investigateState);
+            }
         }
     }
 }
