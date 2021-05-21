@@ -23,6 +23,9 @@ public class Patrol : AI_State
         currentDest = Vector3.zero;
         ai.initialPos.y = ai.transform.position.y;
         goingBack = false;
+        ai.myAnimator.SetBool("idle", false);
+        ai.myAnimator.SetBool("run", false);
+        ai.myAnimator.SetBool("walk", true);
     }
 
     public override void Exicute(AI ai)

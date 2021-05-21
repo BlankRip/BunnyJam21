@@ -31,7 +31,9 @@ public class NormalAI : AI
     }
 
     public override void RecievedPlayerPosition(Vector3 pos, bool isPlayer) {
-        base.RecievedPlayerPosition(pos, isPlayer);
-        SwitchState(investigateState);
+        if(!inChaseState) {
+            base.RecievedPlayerPosition(pos, isPlayer);
+            SwitchState(investigateState);
+        }
     }
 }
