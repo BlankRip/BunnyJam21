@@ -906,8 +906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 329539057}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 88777654}
+  sfxSlider: {fileID: 237687754}
   mixer: {fileID: 0}
   effectSource: {fileID: 0}
   clickClips: []

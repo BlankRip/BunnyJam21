@@ -99,37 +99,55 @@ public class Player : MonoBehaviour
         Movement();
 
         if(verticalInput == 0 && horizontalInput == 0)
+        {
+            myAnimator.SetBool("idle", true);
+            switch(movementMode)
             {
-                myAnimator.SetBool("idle", true);
-                switch(movementMode)
-                {
-                    case 0: 
-                        myAnimator.SetBool("crouch", false);
-                        break;
-                    case 1: 
-                        myAnimator.SetBool("walk", false);
-                        break;
-                    case 2: 
-                        myAnimator.SetBool("run", false);
-                        break;
-                }
+                case 0: 
+                    myAnimator.SetBool("crouch", false);
+                    if(slowTrigger.enabled == true)
+                        slowTrigger.enabled = false;
+                    break;
+                case 1: 
+                    myAnimator.SetBool("walk", false);
+                    if(normalTrigger.enabled == true)
+                        normalTrigger.enabled = false;
+                    break;
+                case 2: 
+                    myAnimator.SetBool("run", false);
+                    if(fastTrigger.enabled == true)
+                        fastTrigger.enabled = false;
+                    break;
             }
+        }
         else if(verticalInput > 0 || horizontalInput > 0 || verticalInput < 0 || horizontalInput < 0)
+        {
+            myAnimator.SetBool("idle", false);
+            switch(movementMode)
             {
-                myAnimator.SetBool("idle", false);
-                switch(movementMode)
-                {
-                    case 0: 
-                        myAnimator.SetBool("crouch", true);
-                        break;
-                    case 1: 
-                        myAnimator.SetBool("walk", true);
-                        break;
-                    case 2: 
-                        myAnimator.SetBool("run", true);
-                        break;
-                }
+                case 0: 
+                    myAnimator.SetBool("crouch", true);
+                    myAnimator.SetBool("walk", false);
+                    myAnimator.SetBool("run", false);
+                    if(slowTrigger.enabled == false)
+                        slowTrigger.enabled = true;
+                    break;
+                case 1: 
+                    myAnimator.SetBool("walk", true);
+                    myAnimator.SetBool("run", false);
+                    myAnimator.SetBool("crouch", false);
+                    if(normalTrigger.enabled == false)
+                        normalTrigger.enabled = true;
+                    break;
+                case 2: 
+                    myAnimator.SetBool("run", true);
+                    myAnimator.SetBool("walk", false);
+                    myAnimator.SetBool("crouch", false);
+                    if(fastTrigger.enabled == false)
+                        fastTrigger.enabled = true;
+                    break;
             }
+        }
     }
 
     private void Movement() {
@@ -158,14 +176,7 @@ public class Player : MonoBehaviour
     public void Kill() {
         if(!lockMovment) {
             LockMovement();
-            cc.enabled = false;
-            Vector3 pos = new Vector3(aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.x, 
-            transform.position.y, aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.z - 1);
-            mesh.transform.LookAt(new Vector3(aiReadyToDie.gameObject.transform.position.x, mesh.rotation.y, aiReadyToDie.gameObject.transform.position.z));
-            transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
-            mesh.transform.rotation = Quaternion.Euler(0, mesh.transform.rotation.y, 0);
-            transform.position = pos;
-            cc.enabled  =true;
+            PositionMe();
             int attackToDo = Random.Range(0,5);
             switch(attackToDo)
             {
@@ -187,6 +198,29 @@ public class Player : MonoBehaviour
             }
             aiReadyToDie.Death();
         }
+    }
+
+    public void PositionMe()
+    {
+        cc.enabled = false;
+        Vector3 pos = new Vector3(aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.x, 
+        transform.position.y, aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.z - 1);
+        mesh.transform.LookAt(new Vector3(aiReadyToDie.gameObject.transform.position.x, mesh.rotation.y, aiReadyToDie.gameObject.transform.position.z));
+        transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+        mesh.transform.rotation = Quaternion.Euler(0, mesh.transform.rotation.y, 0);
+        transform.position = pos;
+        cc.enabled = true;
+    }
+
+    public void PositionMeAlt(AI ai, float rot)
+    {
+        cc.enabled = false;
+        Vector3 pos = new Vector3(ai.gameObject.transform.position.x, 
+        transform.position.y, ai.gameObject.transform.position.z);
+        mesh.transform.LookAt(new Vector3(ai.gameObject.transform.position.x, mesh.rotation.y, ai.gameObject.transform.position.z));
+        mesh.transform.rotation = Quaternion.Euler(0, rot, 0);
+        transform.position = pos;
+        cc.enabled = true;
     }
 
     public void Interact() {

@@ -9,8 +9,8 @@ public class AI : MonoBehaviour
     public Animator myAnimator;
     public float arriveRadius = 0.2f;
     public float idleTime = 3;
+    public float investigateTime = 3;
     public float searchTime = 2;
-    public NavMeshAgent agent;
     public float walkSpeed = 3.5f;
     public float chaseSpeed = 5;
     public Transform[] waypoints;
@@ -24,11 +24,12 @@ public class AI : MonoBehaviour
     [SerializeField] float fieldOfViewRange = 10;
     [SerializeField] LayerMask playerAndObstacles;
 
-    [SerializeField] bool inFOV;
+    bool inFOV;
     Vector3 playerDir;
     RaycastHit hit;
     float angle;
 
+    [HideInInspector] public NavMeshAgent agent;
     [HideInInspector] public bool chasing;
     [HideInInspector] public bool inChaseState;
     [HideInInspector] public Vector3 pointNoted;
