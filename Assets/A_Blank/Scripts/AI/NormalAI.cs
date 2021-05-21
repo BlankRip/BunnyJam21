@@ -5,7 +5,6 @@ using UnityEngine;
 public class NormalAI : AI
 {
     Investigate investigateState;
-    Chase chaseState;
 
     private void Start() {
         AiInitilize();
@@ -20,12 +19,15 @@ public class NormalAI : AI
         investigateState.connections.Add(patrolState);
         chaseState.connections.Add(patrolState);
 
-        SwitchState(idleState);
+        currentState = idleState;
+        currentState.InitilizeState(this);
     }
 
     private void Update() {
-        if(!dead)
+        if(!dead) {
+            StandardUpdates();
             currentState.Exicute(this);
+        }
     }
 
     public override void RecievedPlayerPosition(Vector3 pos, bool isPlayer) {

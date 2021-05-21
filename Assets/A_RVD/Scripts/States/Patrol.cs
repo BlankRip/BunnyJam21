@@ -36,44 +36,45 @@ public class Patrol : AI_State
     void GotoNextPoint(AI ai)
     {
         //^Returns if no waypoints have been set up
-        if (ai.waypoints.Length == 0) {
+        if(ai.waypoints.Length < 2) {
             if(!goingBack) {
                 ai.agent.destination = ai.initialPos;
                 goingBack = true;
+                return;
             } else {
                 ai.transform.rotation = ai.initialRotation;
                 ai.SwitchState(connections[0]);
             }
-        }
-        
-        //^Choose the next point in the array as the destination,
-        //^cycling to the start if necessary.
-        if (ai.loopWaypoints) {
-            destPoint = (destPoint + 1) % ai.waypoints.Length;
-            ai.agent.destination = ai.waypoints[destPoint].position;
-            if(destPoint == 1)
-                ai.SwitchState(connections[0]);
         } else {
-            if (reverse == false && destPoint == ai.waypoints.Length - 1) {
-                reverse = true;
-                goIdle = true;
-            } else if (reverse == true && destPoint == 0) {
-                reverse = false;
-                goIdle = true;
+            //^Choose the next point in the array as the destination,
+            //^cycling to the start if necessary.
+            if (ai.loopWaypoints) {
+                destPoint = (destPoint + 1) % ai.waypoints.Length;
+                ai.agent.destination = ai.waypoints[destPoint].position;
+                if(destPoint == 1)
+                    ai.SwitchState(connections[0]);
+            } else {
+                if (reverse == false && destPoint == ai.waypoints.Length - 1) {
+                    reverse = true;
+                    goIdle = true;
+                } else if (reverse == true && destPoint == 0) {
+                    reverse = false;
+                    goIdle = true;
+                }
+
+                if (reverse)
+                    destPoint -= 1;
+                else
+                    destPoint += 1;
+
+                //^Set the agent to go to the currently selected destination.
+                ai.agent.destination = ai.waypoints[destPoint].position;
+
+                if(goIdle) {
+                    goIdle = false;
+                    ai.SwitchState(connections[0]);
+                }
             }
-
-            if (reverse)
-                destPoint -= 1;
-            else
-                destPoint += 1;
-
-            //^Set the agent to go to the currently selected destination.
-            ai.agent.destination = ai.waypoints[destPoint].position;
-
-            if(goIdle) {
-                goIdle = false;
-                ai.SwitchState(connections[0]);
-            }
-        }
+        }        
     }
 }

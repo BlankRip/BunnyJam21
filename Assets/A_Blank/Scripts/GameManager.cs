@@ -14,13 +14,11 @@ public class GameManager : MonoBehaviour
     private float previous;
 
     private void Awake() {
-        if(instance ==null)
+        if(instance ==null) {
             instance = this;
-    }
-
-    private void Start() {
-        playerScript = FindObjectOfType<Player>();
-        Time.timeScale = 1;
+            playerScript = FindObjectOfType<Player>();
+            Time.timeScale = 1;
+        }
     }
 
     private void Update() {

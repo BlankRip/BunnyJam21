@@ -7,6 +7,8 @@ public class Chase : AI_State
     private float searchingFor;
     private Vector3 chasePos;
     public override void InitilizeState(AI ai) {
+        Debug.Log("Entered Chase");
+        ai.inChaseState = true;
         chasePos = GameManager.instance.playerScript.transform.position;
         chasePos.y = ai.transform.position.y;
         ai.agent.speed = ai.chaseSpeed;
@@ -28,5 +30,10 @@ public class Chase : AI_State
             }
         } else if(searchingFor != 0)
             searchingFor = 0;
+    }
+
+    public override void ExitState(AI ai) {
+        ai.inChaseState = false;
+        //ai.chasing = false;
     }
 }
