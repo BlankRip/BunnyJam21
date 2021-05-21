@@ -373,7 +373,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.82
+  m_Height: 1.6
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -398,11 +398,11 @@ MonoBehaviour:
   joystick: {fileID: 0}
   moveThreshold: 0.2
   watchCooldown: 10
-  moveSpeedSlow: 10
+  moveSpeedSlow: 2
   slowTrigger: {fileID: 862880633127701362}
-  moveSpeedNormal: 15
+  moveSpeedNormal: 3
   normalTrigger: {fileID: 5742755534027029812}
-  moveSpeedFast: 20
+  moveSpeedFast: 4
   fastTrigger: {fileID: 6202588197034856990}
   cc: {fileID: 0}
   interactable: {fileID: 0}
@@ -514,6 +514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9061975935101510726}
     m_Modifications:
+    - target: {fileID: 1740544149327018571, guid: 876f36aea464f6647b16c3bce0696d0f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 9061975935101510724}
     - target: {fileID: 7209519743180690160, guid: 876f36aea464f6647b16c3bce0696d0f, type: 3}
       propertyPath: m_Name
       value: Joe

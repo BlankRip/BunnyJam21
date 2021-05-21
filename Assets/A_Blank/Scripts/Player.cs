@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public AI aiReadyToDie;
 
     public Animator myAnimator;
+    private bool dead = false;
 
     private void Start() {
         cc = GetComponent<CharacterController>();
@@ -258,7 +259,12 @@ public class Player : MonoBehaviour
     }
 
     IEnumerator EndGame() {
-        myAnimator.SetBool("death", true);
+        if(!dead)
+        {   
+            myAnimator.SetTrigger("death"); 
+            myAnimator.SetBool("idle", false);
+            dead = true;
+        }
         yield return new WaitForSeconds(1);
         UIManager.instance.ShowEnd();
     }
