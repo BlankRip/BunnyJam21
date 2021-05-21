@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2580409890170234611}
   - component: {fileID: 862880633127701362}
   - component: {fileID: 3308561237265097334}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SlowT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 1283444016947907055}
   - component: {fileID: 6202588197034856990}
   - component: {fileID: 6658945565954087391}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FastT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 7260757161820958834}
   - component: {fileID: 5742755534027029812}
   - component: {fileID: 356877259946804259}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: NormalT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
