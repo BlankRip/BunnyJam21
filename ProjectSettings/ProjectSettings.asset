@@ -146,6 +146,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.BossBunnyJam21
     Standalone: com.DefaultCompany.BossBunnyJam21
   buildNumber:
     Standalone: 0

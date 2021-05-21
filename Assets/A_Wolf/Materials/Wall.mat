@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wall
-  m_Shader: {fileID: 4800000, guid: b82b983bcbb49c34f9997b894196d227, type: 3}
+  m_Shader: {fileID: 4800000, guid: 215063825eaac684faf6e296e45aef96, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -70,6 +70,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TexScale: 0.235
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
