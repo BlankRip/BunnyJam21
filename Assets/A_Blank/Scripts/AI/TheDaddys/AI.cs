@@ -8,10 +8,10 @@ public class AI : MonoBehaviour
 {
     public Animator myAnimator;
     public NavMeshAgent agent;
-
+    public Transform[] waypoints;
     protected AI_State currentState;
     public bool chasing;
-    public int wanderRange;
+    public bool loop;
 
     protected void AiInitilize() {
         agent = GetComponent<NavMeshAgent>();
