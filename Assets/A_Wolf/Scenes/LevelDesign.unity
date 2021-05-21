@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightSteps: 7
-  effectState: 0
+  effectState: 1
   soundRadius: 4.93
   soundStrength: 0.073
   sounSpeed: 0.547

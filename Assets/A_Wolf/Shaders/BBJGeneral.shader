@@ -55,7 +55,7 @@ Shader "BBJ/General"
             fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;
             fixed scrollSpeed = 80;
             fixed4 timeStop = 0;
-            timeStop.xyz = fixed3(0.0, 0.7, 0.3) * (bwValue * lightLvl + fixed3(0.3,0.3,0.3) * max(pow(saturate(
+            timeStop.xyz = (bwValue * lightLvl + fixed3(0.3,0.3,0.3) * max(pow(saturate(
             tex2Dlod(matrixTex, fixed4(wavePos.x * 10 + _Time.y * scrollSpeed, wavePos.z * 10 - _Time.y * scrollSpeed,1,1) * 0.01).r *
             tex2Dlod(matrixTex, fixed4(wavePos.x * 10 - _Time.y * scrollSpeed, wavePos.z * 10 + _Time.y * scrollSpeed,1,1) * 0.005).r * 2
             ), 2), 0.3)) * atten;
