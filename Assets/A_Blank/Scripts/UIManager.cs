@@ -12,17 +12,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image watchFill;
     [SerializeField] Button killButton;
     [SerializeField] Button interactButton;
+    [SerializeField] Image modeButton;
     [SerializeField] GameObject endScreen;
     [SerializeField] GameObject victoryScreen;
-
+    int currmode = 0;
     public GameObject dialoguePannel;
     public TextMeshProUGUI dialogueTextSpace;
     public TypeWriteText currentWriter;
-
+    public Sprite[] modes;
 
     private void Awake() {
         if(instance ==null)
             instance = this;
+        
+        modeButton.sprite = modes[currmode];
     }
 
     public void InitilizeUI() {
@@ -33,6 +36,21 @@ public class UIManager : MonoBehaviour
 
     public void UpdateMoveMode(string mode) {
         moveModeText.SetText(mode);
+
+        switch(mode)
+        {
+            case "Slow": 
+                currmode = 0;
+                break;
+            case "Normal": 
+                currmode = 1;
+                break;
+            case "Fast": 
+                currmode = 2;
+                break;
+        }
+
+        modeButton.sprite = modes[currmode];
     }
 
     public void WatchReady() {
