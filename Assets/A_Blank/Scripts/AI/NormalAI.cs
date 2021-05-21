@@ -24,7 +24,8 @@ public class NormalAI : AI
     }
 
     private void Update() {
-        currentState.Exicute(this);
+        if(!dead)
+            currentState.Exicute(this);
     }
 
     public override void RecievedPlayerPosition(Vector3 pos, bool isPlayer) {

@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private bool lockMovment;
 
     [HideInInspector] public Interactable interactable;
+    [HideInInspector] public AI aiReadyToDie;
 
     private void Start() {
         cc = GetComponent<CharacterController>();
@@ -87,7 +88,7 @@ public class Player : MonoBehaviour
             if(cooldownRef >= watchCooldown) {
                 Time.timeScale = 1;
                 cooldownRef = 0;
-                UIManager.instance.WatchReady();
+                //UIManager.instance.WatchReady();
                 watchUsed = false;
             }
         }
@@ -120,7 +121,7 @@ public class Player : MonoBehaviour
 
     public void Kill() {
         if(!lockMovment) {
-            //! Kill Here
+            aiReadyToDie.Death();
         }
     }
 

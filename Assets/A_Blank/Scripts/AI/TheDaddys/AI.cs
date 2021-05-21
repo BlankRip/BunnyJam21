@@ -21,6 +21,7 @@ public class AI : MonoBehaviour
     public Vector3 pointNoted;
     public Vector3 initialPos;
     public Quaternion initialRotation;
+    protected bool dead;
 
     protected void AiInitilize() {
         agent = GetComponent<NavMeshAgent>();
@@ -39,13 +40,19 @@ public class AI : MonoBehaviour
     }
 
     public void ViewCone() {
-        if(!chasing) {
-
-        }
+        
     }
 
     public void Death() {
+        UIManager.instance.DisableKill();
+        dead = true;
+        StartCoroutine(Dieing());
+    }
 
+    IEnumerator Dieing() {
+        yield return new WaitForSeconds(1);
+        UIManager.instance.WatchReady();
+        Destroy(this.gameObject);
     }
 
     public void SwitchState(AI_State state) {
