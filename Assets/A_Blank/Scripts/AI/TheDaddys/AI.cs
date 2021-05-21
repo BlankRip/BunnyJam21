@@ -29,11 +29,6 @@ public class AI : MonoBehaviour
     RaycastHit hit;
     float angle;
 
-    //[SerializeField] bool playerCaught;
-    //[SerializeField] float chaseTime;
-    //[SerializeField] float chaseTimer;
-
-
     [HideInInspector] public bool chasing;
     [HideInInspector] public bool inChaseState;
     [HideInInspector] public Vector3 pointNoted;
@@ -114,17 +109,9 @@ public class AI : MonoBehaviour
             chasing = true;
             if(!inChaseState)
                 SwitchState(chaseState);
-            //^chaseTimer = 0;
         }
         else if(chasing && !inFOV)
         {
-            //^ chaseTimer += Time.deltaTime;
-            //^ if (chaseTimer >= chaseTime)
-            //^ {
-            //^     //STOP CHASE STATE
-            //^     chaseTimer = 0;
-            //^ }
-            //^playerCaught = false;
             chasing = false;
         }
     }
