@@ -8,4 +8,6 @@ public class FPSForcer : MonoBehaviour
     {
 #if UNITY_ANDROID
         Application.targetFrameRate = 120;
+#endif
     }
+}
