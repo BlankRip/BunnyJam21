@@ -121,12 +121,18 @@ public class Player : MonoBehaviour
                 {
                     case 0: 
                         myAnimator.SetBool("crouch", true);
+                        myAnimator.SetBool("walk", false);
+                        myAnimator.SetBool("run", false);
                         break;
                     case 1: 
                         myAnimator.SetBool("walk", true);
+                        myAnimator.SetBool("run", false);
+                        myAnimator.SetBool("crouch", false);
                         break;
                     case 2: 
                         myAnimator.SetBool("run", true);
+                        myAnimator.SetBool("walk", false);
+                        myAnimator.SetBool("crouch", false);
                         break;
                 }
             }
