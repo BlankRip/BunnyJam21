@@ -125,6 +125,7 @@ public class AI : MonoBehaviour
     IEnumerator Dieing() {
         yield return new WaitForSeconds(1);
         UIManager.instance.WatchReady();
+        UIManager.instance.DisableKill();
         Destroy(this.gameObject);
     }
 
