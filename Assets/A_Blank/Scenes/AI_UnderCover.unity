@@ -1675,6 +1675,7 @@ GameObject:
   - component: {fileID: 469181578}
   - component: {fileID: 469181577}
   - component: {fileID: 469181581}
+  - component: {fileID: 469181582}
   m_Layer: 0
   m_Name: TestNME
   m_TagString: Untagged
@@ -1753,7 +1754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469181576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.89, y: 1.53, z: 0}
+  m_LocalPosition: {x: 21.4, y: 1.53, z: 10.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1781,6 +1782,22 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &469181582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469181576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a32fbd2957db994c8699a9c25f66283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 0}
+  agent: {fileID: 0}
+  chasing: 0
+  wanderRange: 10
 --- !u!1 &498201966
 GameObject:
   m_ObjectHideFlags: 0

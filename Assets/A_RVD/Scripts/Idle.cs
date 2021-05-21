@@ -6,10 +6,7 @@ public class Idle : AI_State
 {
     public override void InitilizeState(AI ai)
     {
-        Patrol idleState = new Patrol();
-        Chase chaseState = new Chase();
-        connections.Add(idleState);
-        connections.Add(chaseState);
+        ai.SwitchState(connections[0]);
     }
 
     public override void Exicute(AI ai)
