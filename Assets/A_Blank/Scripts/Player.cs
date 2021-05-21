@@ -46,11 +46,8 @@ public class Player : MonoBehaviour
         UIManager.instance.InitilizeUI();
         
         slowMax = (((moveSpeedSlow/10)) * 0.2f);
-        Debug.Log(slowMax);
         normalMax = (((moveSpeedNormal/10)) * 0.2f);
-        Debug.Log(normalMax);
         fastMax = (((moveSpeedFast/10)) * 0.2f) + 0.1f;
-        Debug.Log(fastMax);
 
         movementMode = 0;
         moveSpeed = moveSpeedSlow;
@@ -107,7 +104,6 @@ public class Player : MonoBehaviour
         Vector3 move = (transform.forward * verticalInput + transform.right * horizontalInput);
         move.x = Mathf.Clamp(move.x, -moveClamp, moveClamp);
         move.z = Mathf.Clamp(move.z, -moveClamp, moveClamp);
-        Debug.Log(move);
         cc.Move(move);
 
         if(move != Vector3.zero)
