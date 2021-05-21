@@ -28,8 +28,6 @@ public class Player : MonoBehaviour
     private int movementMode;
     private float moveSpeed;
     private float moveClamp;
-    private float delta;
-    private float previous;
     private float cooldownRef;
     private bool watchUsed;
 
@@ -65,21 +63,18 @@ public class Player : MonoBehaviour
     }
 
     private void Update() {
-        delta = Time.unscaledTime - previous;
-        previous = Time.unscaledTime;
-
         if(!GameManager.instance.paused && !lockMovment) {
             if(joystick.Horizontal > moveThreshold)
-                horizontalInput = moveSpeed * delta;
+                horizontalInput = moveSpeed * GameManager.instance.delta;
             else if(joystick.Horizontal < -moveThreshold)
-                horizontalInput = -moveSpeed * delta;
+                horizontalInput = -moveSpeed * GameManager.instance.delta;
             else
                 horizontalInput = 0;
 
             if(joystick.Vertical > moveThreshold)
-                verticalInput = moveSpeed * delta;
+                verticalInput = moveSpeed * GameManager.instance.delta;
             else if(joystick.Vertical < -moveThreshold)
-                verticalInput = -moveSpeed * delta;
+                verticalInput = -moveSpeed * GameManager.instance.delta;
             else
                 verticalInput = 0;
         } else if(horizontalInput != 0 || verticalInput != 0) {
@@ -87,7 +82,7 @@ public class Player : MonoBehaviour
         }
 
         if(watchUsed) {
-            cooldownRef += delta;
+            cooldownRef += GameManager.instance.delta;
             UIManager.instance.WatchRecovering(watchCooldown, cooldownRef);
             if(cooldownRef >= watchCooldown) {
                 Time.timeScale = 1;
@@ -107,13 +102,14 @@ public class Player : MonoBehaviour
         cc.Move(move);
 
         if(move != Vector3.zero)
-            mesh.rotation = Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(move, Vector3.up), delta * rotationSpeed);
+            mesh.rotation = Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(move, Vector3.up), 
+                GameManager.instance.delta * rotationSpeed);
 
         //^ Grav Sim
         if (cc.isGrounded && yVel.y < 0)
             yVel.y = -2;
-        yVel.y += gravity * delta;
-        cc.Move(yVel * delta);
+        yVel.y += gravity * GameManager.instance.delta;
+        cc.Move(yVel * GameManager.instance.delta);
     }
     public void LockMovement() {
         lockMovment = true;

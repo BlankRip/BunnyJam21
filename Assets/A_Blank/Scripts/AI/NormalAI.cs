@@ -5,16 +5,20 @@ using UnityEngine;
 public class NormalAI : AI
 {
     Investigate investigateState;
+    Chase chaseState;
+
     private void Start() {
         AiInitilize();
 
         Idle idleState = new Idle();
         Patrol patrolState = new Patrol();
         investigateState = new Investigate();
+        chaseState = new Chase();
 
         idleState.connections.Add(patrolState);
         patrolState.connections.Add(idleState);
         investigateState.connections.Add(patrolState);
+        chaseState.connections.Add(patrolState);
 
         SwitchState(idleState);
     }
@@ -23,8 +27,8 @@ public class NormalAI : AI
         currentState.Exicute(this);
     }
 
-    public override void RecievedPlayerPosition(Vector3 pos) {
-        base.RecievedPlayerPosition(pos);
+    public override void RecievedPlayerPosition(Vector3 pos, bool isPlayer) {
+        base.RecievedPlayerPosition(pos, isPlayer);
         SwitchState(investigateState);
     }
 }

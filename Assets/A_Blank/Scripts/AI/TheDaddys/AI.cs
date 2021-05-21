@@ -9,6 +9,7 @@ public class AI : MonoBehaviour
     public Animator myAnimator;
     public float arriveRadius = 0.2f;
     public float idleTime = 3;
+    public float searchTime = 2;
     public NavMeshAgent agent;
     public float walkSpeed = 3.5f;
     public float chaseSpeed = 5;
@@ -31,7 +32,7 @@ public class AI : MonoBehaviour
         ViewCone();
     }
 
-    public virtual void RecievedPlayerPosition(Vector3 pos) { 
+    public virtual void RecievedPlayerPosition(Vector3 pos, bool isPlayer) { 
         pointNoted.x = pos.x;
         pointNoted.y = transform.position.y;
         pointNoted.z = pos.z;
