@@ -11,6 +11,7 @@ public class AI : MonoBehaviour
 
     protected AI_State currentState;
     public bool chasing;
+    public int wanderRange;
 
     protected void AiInitilize() {
         agent = GetComponent<NavMeshAgent>();
