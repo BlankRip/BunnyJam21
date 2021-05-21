@@ -33,7 +33,7 @@ public class Settings : MonoBehaviour
     }
 
     private void Update() {
-        if(clicked && Input.GetKeyUp(KeyCode.Mouse0)) {
+        if(clicked && Input.GetTouch(0).phase == TouchPhase.Ended) {
             effectSource.Stop();
             effectSource.clip = clickClips[Random.Range(0, clickClips.Length)];
             effectSource.Play();
