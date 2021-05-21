@@ -9,6 +9,7 @@ public class Investigate : AI_State
         ai.agent.speed = ai.walkSpeed;
         ai.agent.SetDestination(ai.pointNoted);
         ai.myAnimator.SetBool("idle", false);
+        ai.myAnimator.SetBool("run", false);
         ai.myAnimator.SetBool("walk", true);
     }
 

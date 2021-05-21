@@ -21,6 +21,7 @@ public class Chase : AI_State
         searchingFor = 0;
         caughtPlayer = false;
         ai.myAnimator.SetBool("idle", false);
+        ai.myAnimator.SetBool("walk", false);
         ai.myAnimator.SetBool("run", true);
     }
 
