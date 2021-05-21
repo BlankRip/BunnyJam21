@@ -15,6 +15,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject endScreen;
     [SerializeField] GameObject victoryScreen;
 
+    public GameObject dialoguePannel;
+    public TextMeshProUGUI dialogueTextSpace;
+    public TypeWriteText currentWriter;
+
+
     private void Awake() {
         if(instance ==null)
             instance = this;
@@ -61,5 +66,9 @@ public class UIManager : MonoBehaviour
     public void ShowVictory() {
         Time.timeScale = 0;
         victoryScreen.SetActive(true);
+    }
+
+    public void NextDialogue() {
+        currentWriter.TextInteraction();
     }
 }

@@ -37,9 +37,9 @@ public class Player : MonoBehaviour
     [HideInInspector] public CharacterController cc;
     private float horizontalInput, verticalInput;
     private Vector3 yVel;
+    private bool lockMovment;
 
     [HideInInspector] public Interactable interactable;
-    [HideInInspector] public bool lockMovment;
 
     private void Start() {
         cc = GetComponent<CharacterController>();
@@ -118,6 +118,12 @@ public class Player : MonoBehaviour
             yVel.y = -2;
         yVel.y += gravity * delta;
         cc.Move(yVel * delta);
+    }
+    public void LockMovement() {
+        lockMovment = true;
+    }
+    public void UnlockMovement() {
+        lockMovment = false;
     }
 
     public void Kill() {
