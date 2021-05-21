@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Chase : AI_State
 {
+    private float catchDistance = 1;
+    private float distance;
     private float searchingFor;
     private Vector3 chasePos;
+    private bool caughtPlayer;
+
+
     public override void InitilizeState(AI ai) {
         Debug.Log("Entered Chase");
         ai.inChaseState = true;
@@ -14,22 +19,33 @@ public class Chase : AI_State
         ai.agent.speed = ai.chaseSpeed;
         ai.agent.SetDestination(chasePos);
         searchingFor = 0;
+        caughtPlayer = false;
     }
 
     public override void Exicute(AI ai) {
-        chasePos = GameManager.instance.playerScript.transform.position;
-        chasePos.y = ai.transform.position.y;
-        ai.agent.SetDestination(chasePos);
-
-        if(!ai.chasing) {
-            if(!GameManager.instance.paused)
-                searchingFor += GameManager.instance.delta;
-            if(searchingFor >= ai.searchTime) {
-                searchingFor = 0;
-                ai.SwitchState(connections[0]);
+        if(!caughtPlayer) {
+            distance = (GameManager.instance.playerScript.transform.position - ai.transform.position).sqrMagnitude;
+            if(distance <= catchDistance * catchDistance) {
+                GameManager.instance.playerScript.LockMovement();
+                GameManager.instance.playerScript.Zap();
+                caughtPlayer = true;
+                return;
             }
-        } else if(searchingFor != 0)
-            searchingFor = 0;
+
+            chasePos = GameManager.instance.playerScript.transform.position;
+            chasePos.y = ai.transform.position.y;
+            ai.agent.SetDestination(chasePos);
+
+            if(!ai.chasing) {
+                if(!GameManager.instance.paused)
+                    searchingFor += GameManager.instance.delta;
+                if(searchingFor >= ai.searchTime) {
+                    searchingFor = 0;
+                    ai.SwitchState(connections[0]);
+                }
+            } else if(searchingFor != 0)
+                searchingFor = 0;
+        }
     }
 
     public override void ExitState(AI ai) {

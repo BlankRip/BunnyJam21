@@ -187,4 +187,14 @@ public class Player : MonoBehaviour
         else if (movementMode == 2)
             fastTrigger.gameObject.SetActive(true);
     }
+
+    public void Zap() {
+        //^Play Zap Effect
+        StartCoroutine(EndGame());
+    }
+
+    IEnumerator EndGame() {
+        yield return new WaitForSeconds(1);
+        UIManager.instance.ShowEnd();
+    }
 }
