@@ -3,7 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public abstract class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
-    public abstract void OnInteration();
+    public virtual void OnInteraction() { 
+        OnPlayerExit();
+    }
+
+    public void OnPlayerExit() {
+        Debug.Log($"{this.name} is no longer the current interactable");
+        GameManager.instance.playerScript.interactable = null;
+        UIManager.instance.DisableInteract();
+    }
+    public void OnPlayerEnter() {
+        Debug.Log($"{this.name} is the current interactable");
+        GameManager.instance.playerScript.interactable = this;
+        UIManager.instance.EnableInteract();
+    }
 }
