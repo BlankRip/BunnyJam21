@@ -8,15 +8,35 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Player playerScript;
     public bool paused;
+    public bool readyToLeave;
+    private int currentPickups;
+    private int pickups;
+
+    
+    public float delta;
+    private float previous;
 
     private void Awake() {
-        if(instance ==null)
+        if(instance ==null) {
             instance = this;
+            playerScript = FindObjectOfType<Player>();
+            pickups = FindObjectsOfType<PickUp>().Length;
+            Time.timeScale = 1;
+            readyToLeave = false;
+        }
     }
 
-    private void Start() {
-        playerScript = FindObjectOfType<Player>();
-        Time.timeScale = 1;
+    private void Update() {
+        delta = Time.unscaledTime - previous;
+        previous = Time.unscaledTime;
+    }
+
+    public void PickedUp() {
+        currentPickups++;
+        if(currentPickups == pickups) {
+            readyToLeave = true;
+            Debug.Log("Player Ready to exit sound effect");
+        }
     }
 
     public void NextLevel() {

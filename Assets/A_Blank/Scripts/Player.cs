@@ -28,8 +28,6 @@ public class Player : MonoBehaviour
     private int movementMode;
     private float moveSpeed;
     private float moveClamp;
-    private float delta;
-    private float previous;
     private float cooldownRef;
     private bool watchUsed;
 
@@ -40,6 +38,10 @@ public class Player : MonoBehaviour
     private bool lockMovment;
 
     [HideInInspector] public Interactable interactable;
+    [HideInInspector] public AI aiReadyToDie;
+
+    public Animator myAnimator;
+    private bool dead = false;
 
     private void Start() {
         cc = GetComponent<CharacterController>();
@@ -65,21 +67,18 @@ public class Player : MonoBehaviour
     }
 
     private void Update() {
-        delta = Time.unscaledTime - previous;
-        previous = Time.unscaledTime;
-
         if(!GameManager.instance.paused && !lockMovment) {
             if(joystick.Horizontal > moveThreshold)
-                horizontalInput = moveSpeed * delta;
+                horizontalInput = moveSpeed * GameManager.instance.delta;
             else if(joystick.Horizontal < -moveThreshold)
-                horizontalInput = -moveSpeed * delta;
+                horizontalInput = -moveSpeed * GameManager.instance.delta;
             else
                 horizontalInput = 0;
 
             if(joystick.Vertical > moveThreshold)
-                verticalInput = moveSpeed * delta;
+                verticalInput = moveSpeed * GameManager.instance.delta;
             else if(joystick.Vertical < -moveThreshold)
-                verticalInput = -moveSpeed * delta;
+                verticalInput = -moveSpeed * GameManager.instance.delta;
             else
                 verticalInput = 0;
         } else if(horizontalInput != 0 || verticalInput != 0) {
@@ -87,17 +86,50 @@ public class Player : MonoBehaviour
         }
 
         if(watchUsed) {
-            cooldownRef += delta;
+            cooldownRef += GameManager.instance.delta;
             UIManager.instance.WatchRecovering(watchCooldown, cooldownRef);
             if(cooldownRef >= watchCooldown) {
                 Time.timeScale = 1;
                 cooldownRef = 0;
-                UIManager.instance.WatchReady();
+                //UIManager.instance.WatchReady();
                 watchUsed = false;
             }
         }
 
         Movement();
+
+        if(verticalInput == 0 && horizontalInput == 0)
+            {
+                myAnimator.SetBool("idle", true);
+                switch(movementMode)
+                {
+                    case 0: 
+                        myAnimator.SetBool("crouch", false);
+                        break;
+                    case 1: 
+                        myAnimator.SetBool("walk", false);
+                        break;
+                    case 2: 
+                        myAnimator.SetBool("run", false);
+                        break;
+                }
+            }
+        else if(verticalInput > 0 || horizontalInput > 0 || verticalInput < 0 || horizontalInput < 0)
+            {
+                myAnimator.SetBool("idle", false);
+                switch(movementMode)
+                {
+                    case 0: 
+                        myAnimator.SetBool("crouch", true);
+                        break;
+                    case 1: 
+                        myAnimator.SetBool("walk", true);
+                        break;
+                    case 2: 
+                        myAnimator.SetBool("run", true);
+                        break;
+                }
+            }
     }
 
     private void Movement() {
@@ -107,13 +139,14 @@ public class Player : MonoBehaviour
         cc.Move(move);
 
         if(move != Vector3.zero)
-            mesh.rotation = Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(move, Vector3.up), delta * rotationSpeed);
+            mesh.rotation = Quaternion.Slerp(mesh.rotation, Quaternion.LookRotation(move, Vector3.up), 
+                GameManager.instance.delta * rotationSpeed);
 
         //^ Grav Sim
         if (cc.isGrounded && yVel.y < 0)
             yVel.y = -2;
-        yVel.y += gravity * delta;
-        cc.Move(yVel * delta);
+        yVel.y += gravity * GameManager.instance.delta;
+        cc.Move(yVel * GameManager.instance.delta);
     }
     public void LockMovement() {
         lockMovment = true;
@@ -124,7 +157,35 @@ public class Player : MonoBehaviour
 
     public void Kill() {
         if(!lockMovment) {
-            //! Kill Here
+            LockMovement();
+            cc.enabled = false;
+            Vector3 pos = new Vector3(aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.x, 
+            transform.position.y, aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.z - 1);
+            mesh.transform.LookAt(new Vector3(aiReadyToDie.gameObject.transform.position.x, mesh.rotation.y, aiReadyToDie.gameObject.transform.position.z));
+            transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+            mesh.transform.rotation = Quaternion.Euler(0, mesh.transform.rotation.y, 0);
+            transform.position = pos;
+            cc.enabled  =true;
+            int attackToDo = Random.Range(0,5);
+            switch(attackToDo)
+            {
+                case 0:
+                    myAnimator.SetTrigger("attack1");
+                    break;
+                case 1: 
+                    myAnimator.SetTrigger("attack2");
+                    break;
+                case 2: 
+                    myAnimator.SetTrigger("attack3");
+                    break;
+                case 3: 
+                    myAnimator.SetTrigger("attack4");
+                    break;
+                case 4: 
+                    myAnimator.SetTrigger("attack5");
+                    break;
+            }
+            aiReadyToDie.Death();
         }
     }
 
@@ -180,6 +241,7 @@ public class Player : MonoBehaviour
         normalTrigger.gameObject.SetActive(false);
         slowTrigger.gameObject.SetActive(false);
     }
+
     public void ExitHide() {
         mesh.gameObject.SetActive(true);
         lockMovment = false;
@@ -189,5 +251,22 @@ public class Player : MonoBehaviour
             normalTrigger.gameObject.SetActive(true);
         else if (movementMode == 2)
             fastTrigger.gameObject.SetActive(true);
+    }
+
+    public void Zap() {
+        //^Play Zap Effect
+        StartCoroutine(EndGame());
+    }
+
+    IEnumerator EndGame() {
+        if(!dead)
+        {   
+            dead = true;
+            yield return new WaitForSeconds(0.7f);
+            myAnimator.SetBool("idle", false);
+            myAnimator.SetTrigger("death"); 
+            yield return new WaitForSeconds(1.145f);
+            UIManager.instance.ShowEnd();
+        }
     }
 }
