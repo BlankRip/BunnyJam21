@@ -1,9 +1,12 @@
-Shader "BBJ/General"
+Shader "BBJ/Enemy"
 {
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
+        _RimGlow ("Rim GLow", Color) = (1,1,1,1)
+        _FlatEffect ("Flat Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _KillMark("KIll mark", range(0,1)) = 0.3
     }
     SubShader
     {
@@ -26,14 +29,11 @@ Shader "BBJ/General"
             float3 viewDir;
         };
 
-
         uniform fixed3 waveOrigin, waveColor;
-        uniform fixed waveSpread = 10, soundStrength, soundSpeed, stepCount, timeShiftEffect;
+        uniform fixed waveSpread = 10, soundStrength, soundSpeed, stepCount, timeShiftEffect, _KillMark;
         fixed3 wavePos, viewDir;
 
-        half _Glossiness;
-        half _Metallic;
-        fixed4 _Color;
+        fixed4 _Color, _FlatEffect, _RimGlow;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -54,13 +54,10 @@ Shader "BBJ/General"
             // c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
             fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;
             fixed scrollSpeed = 80;
-            fixed4 timeStop = 0;
-            timeStop.xyz = fixed3(0.0, 0.7, 0.3) * (bwValue * lightLvl + fixed3(0.3,0.3,0.3) * max(pow(saturate(
-            tex2Dlod(matrixTex, fixed4(wavePos.x * 10 + _Time.y * scrollSpeed, wavePos.z * 10 - _Time.y * scrollSpeed,1,1) * 0.01).r *
-            tex2Dlod(matrixTex, fixed4(wavePos.x * 10 - _Time.y * scrollSpeed, wavePos.z * 10 + _Time.y * scrollSpeed,1,1) * 0.005).r * 2
-            ), 2), 0.3)) * atten;
+            fixed4 timeStop=0;
+            timeStop.xyz = _FlatEffect;
             //  fixed4(0.1,0,0,0) * step(tex2Dlod(matrixTex, fixed4( ((atan2(soundDir.x, soundDir.z)/ 3.14) * 0.5 + 0.5) * 20, pow(range,2) - _Time.z, 0,0) * 0.5), 0.5));
-            c.rgb = lerp(normalLook, timeStop, saturate(timeShiftEffect));
+            c.rgb = lerp(normalLook, timeStop, timeShiftEffect);
             c.a = s.Alpha;
             return c;
         }
@@ -70,6 +67,7 @@ Shader "BBJ/General"
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;
+            o.Emission = lerp(_KillMark * _RimGlow * step(saturate(dot (normalize(IN.viewDir), o.Normal)), 0.5), 0, timeShiftEffect);
             wavePos = IN.worldPos;
             viewDir = IN.viewDir;
             // Metallic and smoothness come from slider variables
