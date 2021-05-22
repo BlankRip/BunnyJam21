@@ -298,6 +298,7 @@ public class Player : MonoBehaviour
         if(movementMode == 0) {
             moveSpeed = moveSpeedSlow;
             moveClamp = slowMax;
+            VisualControl.instance.soundRadius = slowTrigger.transform.localScale.x/2 > 1.3f ? slowTrigger.transform.localScale.x/2 : 1.3f;
             if(!lockMovment) {
                 slowTrigger.gameObject.SetActive(true);
                 normalTrigger.gameObject.SetActive(false);
@@ -306,6 +307,7 @@ public class Player : MonoBehaviour
         } else if (movementMode == 1) {
             moveSpeed = moveSpeedNormal;
             moveClamp = normalMax;
+            VisualControl.instance.soundRadius = normalTrigger.transform.localScale.x/2;
             if(!lockMovment) {
                 normalTrigger.gameObject.SetActive(true);
                 slowTrigger.gameObject.SetActive(false);
@@ -314,6 +316,7 @@ public class Player : MonoBehaviour
         } else if (movementMode == 2) {
             moveSpeed = moveSpeedFast;
             moveClamp = fastMax;
+            VisualControl.instance.soundRadius = fastTrigger.transform.localScale.x/2;
             if(!lockMovment) {
                 fastTrigger.gameObject.SetActive(true);
                 normalTrigger.gameObject.SetActive(false);
@@ -328,6 +331,7 @@ public class Player : MonoBehaviour
         mesh.gameObject.SetActive(false);
         cc.enabled = false;
         lockMovment = true;
+        VisualControl.instance.soundRadius = 0;
         fastTrigger.gameObject.SetActive(false);
         normalTrigger.gameObject.SetActive(false);
         slowTrigger.gameObject.SetActive(false);
@@ -337,12 +341,16 @@ public class Player : MonoBehaviour
         mesh.gameObject.SetActive(true);
         cc.enabled = true;
         lockMovment = false;
-        if(movementMode == 0)
+        if(movementMode == 0) {
+            VisualControl.instance.soundRadius = slowTrigger.transform.localScale.x/2;
             slowTrigger.gameObject.SetActive(true);
-        else if (movementMode == 1)
+        } else if (movementMode == 1) {
             normalTrigger.gameObject.SetActive(true);
-        else if (movementMode == 2)
+            VisualControl.instance.soundRadius = normalTrigger.transform.localScale.x/2;
+        } else if (movementMode == 2) {
             fastTrigger.gameObject.SetActive(true);
+            VisualControl.instance.soundRadius = fastTrigger.transform.localScale.x/2;
+        }
     }
 
     public void Zap() {

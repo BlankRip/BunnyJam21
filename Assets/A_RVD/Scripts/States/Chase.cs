@@ -28,7 +28,6 @@ public class Chase : AI_State
     public override void Exicute(AI ai) {
         if(!caughtPlayer) {
             Vector3 mag = (GameManager.instance.playerScript.transform.position - ai.transform.position);
-            Debug.LogError(mag);
             distance = (GameManager.instance.playerScript.transform.position - ai.transform.position).sqrMagnitude;
             if(distance <= catchDistance * catchDistance) {
                 if(!GameManager.instance.inHiding) {

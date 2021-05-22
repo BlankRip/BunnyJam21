@@ -5,6 +5,8 @@ using UnityEngine;
 [ExecuteAlways]
 public class VisualControl : MonoBehaviour
 {
+    public static VisualControl instance;
+
     [Range(0, 10)] public int lightSteps;
     [Range(0, 1)] public float effectState;
     [Range(0, 10)] public float soundRadius;
@@ -14,9 +16,9 @@ public class VisualControl : MonoBehaviour
     public Transform soundPoint;
     public Color waveColor;
 
-    void Start()
-    {
-
+    private void Awake() {
+        if(instance == null)
+            instance = this;
     }
 
     // Update is called once per frame

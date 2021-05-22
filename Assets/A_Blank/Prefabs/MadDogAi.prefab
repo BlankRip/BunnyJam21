@@ -83,7 +83,7 @@ MonoBehaviour:
   fieldOfViewRange: 10
   playerAndObstacles:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 1587
   agent: {fileID: 0}
   chasing: 0
   inChaseState: 0
