@@ -45,7 +45,8 @@ public class Patrol : AI_State
                 goingBack = true;
                 return;
             } else {
-                ai.transform.rotation = ai.initialRotation;
+                ai.transform.SetPositionAndRotation(ai.initialPos, ai.initialRotation);
+                Debug.Log(ai.transform.rotation);
                 ai.SwitchState(connections[0]);
             }
         } else {

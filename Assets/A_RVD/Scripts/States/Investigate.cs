@@ -21,8 +21,12 @@ public class Investigate : AI_State
     public override void Exicute(AI ai) {
         if(!atPoint) {
             distance = (ai.pointNoted - ai.transform.position).sqrMagnitude;
-            if(distance < ai.arriveRadius * ai.arriveRadius)
+            if(distance < ai.arriveRadius * ai.arriveRadius) {
+                ai.myAnimator.SetBool("idle", true);
+                ai.myAnimator.SetBool("run", false);
+                ai.myAnimator.SetBool("walk", false);
                 atPoint = true;
+            }
         } else {
             investigatedFor += Time.deltaTime;
             if(investigatedFor >= ai.investigateTime)

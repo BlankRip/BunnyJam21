@@ -7,7 +7,6 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    [SerializeField] TextMeshProUGUI moveModeText;
     [SerializeField] Button watchButton;
     [SerializeField] Image watchFill;
     [SerializeField] Button killButton;
@@ -34,23 +33,8 @@ public class UIManager : MonoBehaviour
         DisableInteract();
     }
 
-    public void UpdateMoveMode(string mode) {
-        moveModeText.SetText(mode);
-
-        switch(mode)
-        {
-            case "Slow": 
-                currmode = 0;
-                break;
-            case "Normal": 
-                currmode = 1;
-                break;
-            case "Fast": 
-                currmode = 2;
-                break;
-        }
-
-        modeButton.sprite = modes[currmode];
+    public void UpdateMoveMode(int mode) {
+        modeButton.sprite = modes[mode];
     }
 
     public void WatchReady() {

@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9129984306255306813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9129984306255306815}
+  - component: {fileID: 9129984306255306809}
+  - component: {fileID: 9129984306255306814}
+  - component: {fileID: 9129984306255306808}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9129984306255306815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129984306255306813}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9129984306255306809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129984306255306813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f1f3ef570fbec44a328a550d0a8dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScript: {fileID: 0}
+  paused: 0
+  readyToLeave: 0
+  delta: 0
+--- !u!114 &9129984306255306814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129984306255306813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2ba230e38fd9744e8506b852ed8a608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveModeText: {fileID: 0}
+  watchButton: {fileID: 0}
+  watchFill: {fileID: 0}
+  killButton: {fileID: 0}
+  interactButton: {fileID: 0}
+  modeButton: {fileID: 0}
+  endScreen: {fileID: 0}
+  victoryScreen: {fileID: 0}
+  dialoguePannel: {fileID: 0}
+  dialogueTextSpace: {fileID: 0}
+  currentWriter: {fileID: 0}
+  modes:
+  - {fileID: 21300000, guid: 4994cbb8be8907a47b0a8614d94df6b7, type: 3}
+  - {fileID: 21300000, guid: 56a875074e3f032469536d179573bc66, type: 3}
+  - {fileID: 21300000, guid: 2c9dc19959a8c494f8d3cd10ddb3bc36, type: 3}
+--- !u!114 &9129984306255306808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129984306255306813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673560bd5cbbd7f44a094022a3638013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseObj: {fileID: 0}
