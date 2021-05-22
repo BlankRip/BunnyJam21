@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 25074908}
   - component: {fileID: 25074907}
   - component: {fileID: 25074906}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hiding Garbage Bin (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8877,7 +8877,7 @@ GameObject:
   - component: {fileID: 353471652}
   - component: {fileID: 353471651}
   - component: {fileID: 353471650}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hiding Garbage Bin (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16567,7 +16567,7 @@ GameObject:
   - component: {fileID: 560695648}
   - component: {fileID: 560695647}
   - component: {fileID: 560695646}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hiding Garbage Bin (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52158,7 +52158,7 @@ GameObject:
   - component: {fileID: 1604906395}
   - component: {fileID: 1604906394}
   - component: {fileID: 1604906393}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hiding Garbage Bin (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56832,7 +56832,7 @@ GameObject:
   - component: {fileID: 1762634292}
   - component: {fileID: 1762634291}
   - component: {fileID: 1762634290}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hiding Garbage Bin (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

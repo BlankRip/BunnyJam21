@@ -77,8 +77,8 @@ MonoBehaviour:
   idleTime: 3
   investigateTime: 3
   searchTime: 8
-  walkSpeed: 4
-  chaseSpeed: 9
+  walkSpeed: 2
+  chaseSpeed: 6
   waypoints: []
   loopWaypoints: 0
   fieldOfViewAngle: 90
@@ -273,7 +273,7 @@ MonoBehaviour:
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
   viewMeshFilter: {fileID: 849740733369987370}
-  inFOV: 0
+  mat: {fileID: 0}
 --- !u!33 &849740733369987370
 MeshFilter:
   m_ObjectHideFlags: 0
