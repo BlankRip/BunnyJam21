@@ -50,14 +50,11 @@ public class PEController : MonoBehaviour
             {
                 startStopwatch = false;
                 //begin sickness 
-                Debug.Log("test");
                 if (iteration <= 1)
                 {
-                    Debug.Log("test2");
                     wavePowerControllLerp = Mathf.Lerp(max, min, t);
 
                     t += (Time.deltaTime / 2.5f);
-                    Debug.Log("test3");
                     if (t > 1)
                     {
                         float temp = max;
@@ -74,6 +71,7 @@ public class PEController : MonoBehaviour
 
                 if (stopwatchTimer <= 0)
                 {
+                    //stop sickness
                     wavePowerControllLerp = 0;
                     t = 0;
                     max = 75;
