@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] Collider normalTrigger;
     [SerializeField] float moveSpeedFast = 20;
     [SerializeField] Collider fastTrigger;
+    [SerializeField] bool firstLevel;
     private float slowMax;
     private float normalMax;
     private float fastMax;
@@ -46,7 +47,9 @@ public class Player : MonoBehaviour
     private void Start() {
         cc = GetComponent<CharacterController>();
         UIManager.instance.InitilizeUI();
-        
+        if(firstLevel)
+            UIManager.instance.WatchUsed();
+
         slowMax = (((moveSpeedSlow/10)) * 0.2f);
         normalMax = (((moveSpeedNormal/10)) * 0.2f);
         fastMax = (((moveSpeedFast/10)) * 0.2f) + 0.1f;
@@ -284,6 +287,7 @@ public class Player : MonoBehaviour
 
     public void EnterHide() {
         mesh.gameObject.SetActive(false);
+        cc.enabled = false;
         lockMovment = true;
         fastTrigger.gameObject.SetActive(false);
         normalTrigger.gameObject.SetActive(false);
@@ -292,6 +296,7 @@ public class Player : MonoBehaviour
 
     public void ExitHide() {
         mesh.gameObject.SetActive(true);
+        cc.enabled = true;
         lockMovment = false;
         if(movementMode == 0)
             slowTrigger.gameObject.SetActive(true);
