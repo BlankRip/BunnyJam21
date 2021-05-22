@@ -6,7 +6,7 @@ public class PlayerUnlocker : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] AudioClip step;
-    [SerializeField] GameAudio gameAudio;
+    [SerializeField] AudioClip kick;
 
     public void Unlock()
     {
@@ -14,14 +14,18 @@ public class PlayerUnlocker : MonoBehaviour
     }
     public void LightStep()
     {
-        gameAudio.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxLow, Random.Range(2.5f, 3f));
+        GameAudio.instance.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxLow, Random.Range(2.5f, 3f));
     }
     public void MediumStep()
     {
-        gameAudio.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxNormal, Random.Range(2f, 2.5f));
+        GameAudio.instance.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxNormal, Random.Range(2f, 2.5f));
     }
     public void HeavyStep()
     {
-        gameAudio.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxLoud, Random.Range(1f, 2f));
+        GameAudio.instance.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxLoud, Random.Range(1f, 2f));
+    }
+    public void Impact()
+    {
+        GameAudio.instance.PlaySFxOneShot(kick, MixerDataBase.instance.sfxLow);
     }
 }

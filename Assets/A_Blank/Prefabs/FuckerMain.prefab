@@ -77,6 +77,7 @@ MonoBehaviour:
   normalTrigger: {fileID: 2945607696180442418}
   moveSpeedFast: 4
   fastTrigger: {fileID: 3550734498379340312}
+  firstLevel: 0
   cc: {fileID: 0}
   interactable: {fileID: 0}
   aiReadyToDie: {fileID: 0}
@@ -188,6 +189,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 9061975935101510726}
     m_Modifications:
     - target: {fileID: 1740544149327018571, guid: 876f36aea464f6647b16c3bce0696d0f, type: 3}
+      propertyPath: kick
+      value: 
+      objectReference: {fileID: 8300000, guid: a5d2f8b18805c834fb9935647efe7ea9, type: 3}
+    - target: {fileID: 1740544149327018571, guid: 876f36aea464f6647b16c3bce0696d0f, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 9061975935101510724}
@@ -239,7 +244,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1834879577506569796, guid: 876f36aea464f6647b16c3bce0696d0f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 876f36aea464f6647b16c3bce0696d0f, type: 3}
 --- !u!4 &243167092652137207 stripped
 Transform:

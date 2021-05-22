@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public AI aiReadyToDie;
 
     public Animator myAnimator;
+    [SerializeField] AudioClip freeze, interact;
     private bool dead = false;
 
     private void Start() {
@@ -242,11 +243,13 @@ public class Player : MonoBehaviour
     }
 
     public void Interact() {
+        GameAudio.instance.PlaySFxOneShot(interact, MixerDataBase.instance.sfxNormal);
         interactable.OnInteraction();
     }
 
     public void UseWatch() {
         Time.timeScale = 0;
+        GameAudio.instance.PlaySFxOneShot(freeze, MixerDataBase.instance.sfxNormal);
         UIManager.instance.WatchUsed();
         watchUsed = true;
     }

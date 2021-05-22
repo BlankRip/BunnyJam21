@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image modeButton;
     [SerializeField] GameObject endScreen;
     [SerializeField] GameObject victoryScreen;
+    [SerializeField] AudioClip unfreeze;
     int currmode = 0;
     public GameObject dialoguePannel;
     public TextMeshProUGUI dialogueTextSpace;
@@ -39,6 +40,7 @@ public class UIManager : MonoBehaviour
 
     public void WatchReady() {
         watchButton.interactable = true;
+        GameAudio.instance.PlaySFxOneShot(unfreeze, MixerDataBase.instance.sfxNormal);
     }
     public void WatchUsed() {
         watchButton.interactable = false;

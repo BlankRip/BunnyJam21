@@ -10,14 +10,7 @@ public class GameAudio : MonoBehaviour
     [SerializeField] AudioSource playerSfxAudio;
     
     private void Awake() {
-        if(instance = null) {
-            instance = this;
-            sfxAudio.loop = false;
-            playerSfxAudio.loop = false;
-        }
-    }
-    private void Start() {
-        if(instance = null) {
+        if(instance == null) {
             instance = this;
             sfxAudio.loop = false;
             playerSfxAudio.loop = false;

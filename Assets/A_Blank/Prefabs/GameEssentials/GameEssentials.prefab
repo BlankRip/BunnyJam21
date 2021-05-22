@@ -883,6 +883,10 @@ PrefabInstance:
       value: Managers
       objectReference: {fileID: 0}
     - target: {fileID: 9129984306255306814, guid: c9912d9feebca2147a7967a8a46d5989, type: 3}
+      propertyPath: unfreeze
+      value: 
+      objectReference: {fileID: 8300000, guid: 7080d9cd4d43f174dbb5f31ec691a2cf, type: 3}
+    - target: {fileID: 9129984306255306814, guid: c9912d9feebca2147a7967a8a46d5989, type: 3}
       propertyPath: endScreen
       value: 
       objectReference: {fileID: 3702180937158306559}
@@ -1628,6 +1632,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.322756
       objectReference: {fileID: 0}
+    - target: {fileID: 9061975935101510724, guid: b36b4b7ec741935459fe8015255bc3a6, type: 3}
+      propertyPath: freeze
+      value: 
+      objectReference: {fileID: 8300000, guid: 412ff1c7d24d07f4c82b7adf6f4abffd, type: 3}
+    - target: {fileID: 9061975935101510724, guid: b36b4b7ec741935459fe8015255bc3a6, type: 3}
+      propertyPath: interact
+      value: 
+      objectReference: {fileID: 8300000, guid: d09bd6874e324604b901fc05ebc46545, type: 3}
     - target: {fileID: 9061975935101510724, guid: b36b4b7ec741935459fe8015255bc3a6, type: 3}
       propertyPath: joystick
       value: 
