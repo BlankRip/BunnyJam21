@@ -13,8 +13,7 @@ public class GameManager : MonoBehaviour
     public int onPlayersAss;
     private int currentPickups;
     private int pickups;
-
-    
+    [SerializeField] AudioClip complete;
     public float delta;
     private float previous;
 
@@ -30,6 +29,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        UIManager.instance.totalPickups.text = pickups.ToString();
+        UIManager.instance.currentPickups.text = "0";
+    }
+
     private void Update() {
         delta = Time.unscaledTime - previous;
         previous = Time.unscaledTime;
@@ -37,9 +41,10 @@ public class GameManager : MonoBehaviour
 
     public void PickedUp() {
         currentPickups++;
+        UIManager.instance.currentPickups.text = currentPickups.ToString();
         if(currentPickups == pickups) {
             readyToLeave = true;
-            Debug.Log("Player Ready to exit sound effect");
+            GameAudio.instance.PlaySFxOneShot(complete, MixerDataBase.instance.sfxNormal);
         }
     }
 

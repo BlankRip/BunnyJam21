@@ -7,6 +7,8 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     public Animator myAnimator;
+    [SerializeField] SkinnedMeshRenderer renderer;
+    [Range(0, 1)][SerializeField] float rimAmount = 0.35f;
     public float arriveRadius = 0.2f;
     public float idleTime = 3;
     public float investigateTime = 3;
@@ -138,6 +140,14 @@ public class AI : MonoBehaviour
         UIManager.instance.WatchReady();
         UIManager.instance.DisableKill();
         Destroy(this.gameObject);
+    }
+
+    public void ReadyToDie() {
+        renderer.material.SetFloat("_KillMark", rimAmount);
+    }
+
+    public void NotReadyToDie() {
+        renderer.material.SetFloat("_KillMark", 0);
     }
 
     public void SwitchState(AI_State state) {

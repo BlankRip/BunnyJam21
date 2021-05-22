@@ -136,8 +136,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9028949948741809871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.97}
-  m_LocalScale: {x: 0.13111793, y: 0.13111793, z: 1.514229}
+  m_LocalPosition: {x: 0, y: 0, z: -0.929}
+  m_LocalScale: {x: 0.2572665, y: 0.13111793, z: 1.3070523}
   m_Children: []
   m_Father: {fileID: 9028949950029312208}
   m_RootOrder: 0
@@ -288,6 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 6048022661797895277}
+  renderer: {fileID: 6815125483852052618}
+  rimAmount: 0.6
   arriveRadius: 0.2
   idleTime: 3
   investigateTime: 3
@@ -300,7 +302,7 @@ MonoBehaviour:
   fieldOfViewRange: 10
   playerAndObstacles:
     serializedVersion: 2
-    m_Bits: 51
+    m_Bits: 1587
   agent: {fileID: 0}
   chasing: 0
   inChaseState: 0
@@ -386,5 +388,10 @@ Transform:
 --- !u!95 &6048022661797895277 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3863788597482333078, guid: ff0c3aa651947d94e83d4507dd0c14fa, type: 3}
+  m_PrefabInstance: {fileID: 7381412791029759995}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6815125483852052618 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4099466809041536881, guid: ff0c3aa651947d94e83d4507dd0c14fa, type: 3}
   m_PrefabInstance: {fileID: 7381412791029759995}
   m_PrefabAsset: {fileID: 0}
