@@ -1353,6 +1353,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6954531691785998512, guid: cf8443763fc34314490f8a3e2f94dd37, type: 3}
   m_PrefabInstance: {fileID: 207860792}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &211850181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211850183}
+  - component: {fileID: 211850182}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211850182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211850181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686ce7cc86764884fbe043968726e4c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &211850183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211850181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &213878231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3769,11 +3812,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3702180939005700910, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.49
+      value: -3.26
       objectReference: {fileID: 0}
     - target: {fileID: 3702180939005700910, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.31
+      value: -4.53
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
@@ -12631,6 +12674,34 @@ PrefabInstance:
       value: Now cadit your task is to stop time, get in there retrieve the data,
         knockout the mad dog from behind to recover your watch charge and make your
         way back to the car.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 211850182}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChargeClock
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TutorialEvents, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993817, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: m_Name
