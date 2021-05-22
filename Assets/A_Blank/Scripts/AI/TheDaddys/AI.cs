@@ -25,6 +25,7 @@ public class AI : MonoBehaviour
     [SerializeField] LayerMask playerAndObstacles;
 
     bool inFOV;
+    private bool previousFOV;
     Vector3 playerDir;
     RaycastHit hit;
     float angle;
@@ -103,6 +104,13 @@ public class AI : MonoBehaviour
             Debug.DrawRay(transform.position, playerDir, Color.white);
             inFOV = false;
         }
+
+        if(!previousFOV && inFOV)
+            GameManager.instance.onPlayersAss++;
+        else if (previousFOV && !inFOV)
+            GameManager.instance.onPlayersAss--;
+        previousFOV = inFOV;
+
 
         if (!chasing && inFOV == true)
         {
