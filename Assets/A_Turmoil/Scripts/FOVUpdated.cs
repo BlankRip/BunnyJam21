@@ -12,7 +12,7 @@ public class FOVUpdated : MonoBehaviour
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 
-	//[HideInInspector]
+	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
 	public float meshResolution;
@@ -26,7 +26,9 @@ public class FOVUpdated : MonoBehaviour
 	RaycastHit hit;
 	Vector3 dirToTarget;
 
-	[SerializeField] bool inFOV;
+	bool inFOV;
+
+	[SerializeField] Material mat;
 
 	void Start()
 	{
@@ -35,7 +37,7 @@ public class FOVUpdated : MonoBehaviour
 		viewMeshFilter.mesh = viewMesh;
 		target = GameObject.FindGameObjectWithTag("Player").transform;
 
-		StartCoroutine("FindTargetsWithDelay", .2f);
+		//StartCoroutine("FindTargetsWithDelay", .2f);
 
 	}
 
@@ -54,7 +56,7 @@ public class FOVUpdated : MonoBehaviour
 	{
 		DrawFieldOfView();
 	}
-
+	
 	void FindVisibleTargets()
 	{
 		visibleTargets.Clear();
@@ -89,6 +91,7 @@ public class FOVUpdated : MonoBehaviour
 			inFOV = true;
 		}
 	}
+	
 
 	void DrawFieldOfView()
 	{
@@ -148,7 +151,7 @@ public class FOVUpdated : MonoBehaviour
 		viewMesh.RecalculateNormals();
 	}
 
-
+	
 	EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast)
 	{
 		float minAngle = minViewCast.angle;
@@ -217,7 +220,7 @@ public class FOVUpdated : MonoBehaviour
 			angle = _angle;
 		}
 	}
-
+	
 	public struct EdgeInfo
 	{
 		public Vector3 pointA;
@@ -229,5 +232,6 @@ public class FOVUpdated : MonoBehaviour
 			pointB = _pointB;
 		}
 	}
+	
 
 }
