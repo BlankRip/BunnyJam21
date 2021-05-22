@@ -52,7 +52,7 @@ Shader "BBJ/General"
             fixed3 normalLook = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
 
             // c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
-            fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;
+            fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = max(dot (s.Normal, lightDir), 0) * (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;
             fixed scrollSpeed = 80;
             fixed4 timeStop = 0;
             timeStop.xyz = (bwValue * lightLvl + fixed3(0.3,0.3,0.3) * max(pow(saturate(
