@@ -15,6 +15,7 @@ public class VisualControl : MonoBehaviour
     public Texture2D matrixTexture;
     public Transform soundPoint;
     public Color waveColor;
+    public Color shadowColor;
 
     private void Awake() {
         if(instance == null)
@@ -31,6 +32,7 @@ public class VisualControl : MonoBehaviour
         Shader.SetGlobalFloat("soundSpeed", sounSpeed);
         Shader.SetGlobalVector("waveOrigin", soundPoint.position);
         Shader.SetGlobalVector("waveColor", waveColor);
+        Shader.SetGlobalVector("shadowColor", shadowColor);
         Shader.SetGlobalTexture("matrixTex", matrixTexture);
     }
 }
