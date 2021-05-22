@@ -71,7 +71,6 @@ public class FOVUpdated : MonoBehaviour
 					if (target.tag == "Player")
 					{
 						visibleTargets.Add(target);
-						Debug.Log("Player is detected");
 					}	
 				}
 			}
@@ -80,6 +79,7 @@ public class FOVUpdated : MonoBehaviour
 
 	void TargetsInFOV()
 	{
+			//ADD CHASE STATES HERE
 		if(visibleTargets.Count <= 0)
 		{
 			inFOV = false;

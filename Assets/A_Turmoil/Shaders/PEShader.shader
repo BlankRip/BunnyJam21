@@ -67,7 +67,7 @@ Shader "J_Shaders/PEShader"
                 
                 if (_WaveStrength > 0)
                 {
-                    fixed4 col = tex2D(_MainTex, i.uv + wave / _WaveStrength);//wave / 100);
+                    fixed4 col = tex2D(_MainTex, i.uv + wave / lerp(1,2,_WaveStrength));//wave / 100);
                     return col;
                 }
                 else
