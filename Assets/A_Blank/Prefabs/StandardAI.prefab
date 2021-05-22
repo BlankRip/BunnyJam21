@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2490365995227039250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.97}
-  m_LocalScale: {x: 0.13111793, y: 0.13111793, z: 1.514229}
+  m_LocalScale: {x: 0.2569135, y: 0.13111793, z: 1.514229}
   m_Children: []
   m_Father: {fileID: 2490365995664579562}
   m_RootOrder: 0
@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 6771301905152134477}
+  renderer: {fileID: 9161668029126354383}
+  rimAmount: 0.6
   arriveRadius: 0.2
   idleTime: 3
   investigateTime: 3
@@ -390,5 +392,10 @@ Transform:
 --- !u!95 &6771301905152134477 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9040832918174411571, guid: 2f1c5538f13f18d418e8b9b16f1e7bf3, type: 3}
+  m_PrefabInstance: {fileID: 2346096780375320190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &9161668029126354383 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6893825890603778993, guid: 2f1c5538f13f18d418e8b9b16f1e7bf3, type: 3}
   m_PrefabInstance: {fileID: 2346096780375320190}
   m_PrefabAsset: {fileID: 0}

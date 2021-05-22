@@ -14,6 +14,7 @@ public class PleaseKillMe : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")) {
             GameManager.instance.playerScript.aiReadyToDie = myAi;
+            myAi.ReadyToDie();
             UIManager.instance.EnableKill();
         }
     }
@@ -21,6 +22,7 @@ public class PleaseKillMe : MonoBehaviour
     private void OnTriggerExit(Collider other) {
         if(other.CompareTag("Player")) {
             GameManager.instance.playerScript.aiReadyToDie = null;
+            myAi.NotReadyToDie();
             UIManager.instance.DisableKill();
         }
     }

@@ -2011,18 +2011,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6620987842882465262, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
-      propertyPath: m_Radius
-      value: 1.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620987842882465262, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
-      propertyPath: m_Center.x
-      value: 0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620987842882465262, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
-      propertyPath: m_Center.z
-      value: -0.85
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
 --- !u!1001 &260219384
@@ -4237,11 +4225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3702180939005700910, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1
+      value: -10.51
       objectReference: {fileID: 0}
     - target: {fileID: 3702180939005700910, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.7
+      value: 26.11
       objectReference: {fileID: 0}
     - target: {fileID: 3908377103211788161, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11686,6 +11674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f22f7b7a1e44049b7b7163debf7850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer: {fileID: 8361433814847045492}
+  rimAmount: 0.35
   hide: {fileID: 8300000, guid: 23374de5c91be64488757c1f0273bfdb, type: 3}
 --- !u!65 &1099069690
 BoxCollider:
