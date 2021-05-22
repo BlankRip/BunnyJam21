@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerUnlocker : MonoBehaviour
 {
     [SerializeField] Player player;
-    [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip step;
+    [SerializeField] GameAudio gameAudio;
 
     public void Unlock()
     {
@@ -14,20 +14,14 @@ public class PlayerUnlocker : MonoBehaviour
     }
     public void LightStep()
     {
-        audioSource.volume = 0.125f;
-        audioSource.pitch = Random.Range(2.5f, 3f);
-        audioSource.PlayOneShot(step);
+        gameAudio.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxLow, Random.Range(2.5f, 3f));
     }
     public void MediumStep()
     {
-        audioSource.volume = 0.1875f;
-        audioSource.pitch = Random.Range(2f, 2.5f);
-        audioSource.PlayOneShot(step);
+        gameAudio.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxNormal, Random.Range(2f, 2.5f));
     }
     public void HeavyStep()
     {
-        audioSource.volume = 0.5f;
-        audioSource.pitch = Random.Range(1f, 2f);
-        audioSource.PlayOneShot(step);
+        gameAudio.PlayPlayerSFxOneShot(step, MixerDataBase.instance.sfxLoud, Random.Range(1f, 2f));
     }
 }

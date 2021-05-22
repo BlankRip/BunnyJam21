@@ -1127,14 +1127,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: myDialogs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[0]
-      value: Welcome cadit in this simulation I will teach you how to become a data
-        retreiver.
+      value: Hello James,welcome to the simulation.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[1]
-      value: Once you get threw this you shall be sent into the feild for official
-        business.
+      value: It's been a long time Agent Wick.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: myDialogs.Array.data[2]
+      value: Let's brush up on those skills again, shall we.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993817, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: m_Name
@@ -3070,12 +3076,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[0]
-      value: Now you see this guy he does not seem to like to stand still so...
+      value: Ah yes, the classic patrol.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[1]
-      value: Use this to your advantage and tip-toe behind him. You might as well
-        use the shutter box on the way to hide if needed.
+      value: Make as little noise as possible and stay out of his sight. Hide in
+        a nearby shutter if possible.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993817, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: m_Name
@@ -13308,33 +13314,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[0]
-      value: Well now that guy is a mad dog. He shoots before he thinks so better
-        stay clear of him.
+      value: There it is James. The file you need to end the simulation.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[1]
-      value: But now the only way to get to the retrival data is therew him. Use
-        your watch here it will stop time for a few seconds which could be enough
-        for you to get out of tough spots.
+      value: 'There''s one last guard you need to get past. '
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[2]
-      value: But once used if you need the watch to charge up again you need to knocke
-        out an enemy from behind and collect his essense.
+      value: Careful on this one, he can see very far.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[3]
-      value: Now cadit your task is to stop time, get in there retrieve the data,
-        knockout the mad dog from behind to recover your watch charge and make your
-        way back to the car.
+      value: Remember, you have your special device. The zaman, use it to halt time
+        for a few seconds, and move past the guard.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: myDialogs.Array.data[4]
+      value: Either kill him or steal the file. Either way once you are done, get
+        back to the car. I will bring you out.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: endConvoEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -15657,13 +15663,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: myDialogs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[0]
-      value: Modulate your movment speed to create more noise and attract the enemy
-        in the room beside.
+      value: Remember, you make more noise the faster you move.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: myDialogs.Array.data[1]
-      value: Then try sneak past him as he come to this loactaion to investigate.
+      value: Try to attract the guard with some noise.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982937061364993815, guid: 725e939b895fd944981146e2321aded5, type: 3}
+      propertyPath: myDialogs.Array.data[2]
+      value: Then sneak past him.
       objectReference: {fileID: 0}
     - target: {fileID: 6982937061364993817, guid: 725e939b895fd944981146e2321aded5, type: 3}
       propertyPath: m_Name
