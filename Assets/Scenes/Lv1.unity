@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 4fb380d3725833e4399efd1664f4fb42
+  m_OcclusionCullingData: {fileID: 36300000, guid: 1aee524c889b80c4ba4020fde6614ba5, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -4234,6 +4234,34 @@ PrefabInstance:
     - target: {fileID: 3542683742593014952, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -136.46655
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: m_HDR
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: far clip plane
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: m_RenderingPath
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3702180938862122178, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_Name
