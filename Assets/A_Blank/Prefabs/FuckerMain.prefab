@@ -82,7 +82,7 @@ MonoBehaviour:
   interactable: {fileID: 0}
   aiReadyToDie: {fileID: 0}
   myAnimator: {fileID: 1125494183681206157}
-  PEMat: {fileID: 0}
+  PEMat: {fileID: 2100000, guid: 89c162ef3c2d992478308df7da75a82e, type: 2}
 --- !u!54 &6064225175989537463
 Rigidbody:
   m_ObjectHideFlags: 0
