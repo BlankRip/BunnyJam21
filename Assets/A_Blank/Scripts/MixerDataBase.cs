@@ -6,10 +6,7 @@ using UnityEngine.Audio;
 public class MixerDataBase : MonoBehaviour
 {
     public static MixerDataBase instance;
-
-    public AudioMixerGroup backNormal;
-    public AudioMixerGroup backAdranel;
-
+    
     public AudioMixerGroup sfxLow;
     public AudioMixerGroup sfxNormal;
     public AudioMixerGroup sfxLoud;

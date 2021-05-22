@@ -6,20 +6,13 @@ using UnityEngine.Audio;
 public class GameAudio : MonoBehaviour
 {
     public static GameAudio instance;
-
-    [SerializeField] AudioSource backGroundAudio;
     [SerializeField] AudioSource sfxAudio;
     
     private void Awake() {
         if(instance = null) {
             instance = this;
-            backGroundAudio.loop = true;
             sfxAudio.loop = false;
         }
-    }
-
-    public void ChangeBackground(AudioClip clip, AudioMixerGroup group) {
-        SwitchAudio(backGroundAudio, clip, group);
     }
 
     public void PlaySFx(AudioClip clip, AudioMixerGroup group) {
