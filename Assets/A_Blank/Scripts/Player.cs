@@ -202,14 +202,29 @@ public class Player : MonoBehaviour
 
     public void PositionMe()
     {
-        cc.enabled = false;
-        Vector3 pos = new Vector3(aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.x, 
-        transform.position.y, aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.z - 1);
-        mesh.transform.LookAt(new Vector3(aiReadyToDie.gameObject.transform.position.x, mesh.rotation.y, aiReadyToDie.gameObject.transform.position.z));
-        transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
-        mesh.transform.rotation = Quaternion.Euler(0, mesh.transform.rotation.y, 0);
-        transform.position = pos;
-        cc.enabled = true;
+        Vector3 mag = (transform.position - aiReadyToDie.gameObject.transform.position);
+        if(mag.z < 0)
+        {
+            cc.enabled = false;
+            Vector3 pos = new Vector3(aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.x, 
+            transform.position.y, aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.z + 1);
+            mesh.transform.LookAt(new Vector3(aiReadyToDie.gameObject.transform.position.x, mesh.rotation.y, aiReadyToDie.gameObject.transform.position.z));
+            transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+            mesh.transform.rotation = Quaternion.Euler(0, mesh.transform.rotation.y, 0);
+            transform.position = pos;
+            cc.enabled = true;
+        }
+        if(mag.z < 0)
+        {
+            cc.enabled = false;
+            Vector3 pos = new Vector3(aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.x, 
+            transform.position.y, aiReadyToDie.gameObject.GetComponentInChildren<PleaseKillMe>().transform.position.z - 1);
+            mesh.transform.LookAt(new Vector3(aiReadyToDie.gameObject.transform.position.x, mesh.rotation.y, aiReadyToDie.gameObject.transform.position.z));
+            transform.rotation = Quaternion.Euler(0, -transform.rotation.y, 0);
+            mesh.transform.rotation = Quaternion.Euler(0, -mesh.transform.rotation.y, 0);
+            transform.position = pos;
+            cc.enabled = true;
+        }
     }
 
     public void PositionMeAlt(AI ai, float rot)
