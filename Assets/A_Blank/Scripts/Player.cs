@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         movementMode = 0;
         moveSpeed = moveSpeedSlow;
         moveClamp = slowMax;
-        UIManager.instance.UpdateMoveMode("Slow");
+        UIManager.instance.UpdateMoveMode(movementMode);
         slowTrigger.gameObject.SetActive(true);
         normalTrigger.gameObject.SetActive(false);
         fastTrigger.gameObject.SetActive(false);
@@ -241,7 +241,6 @@ public class Player : MonoBehaviour
         if(movementMode == 0) {
             moveSpeed = moveSpeedSlow;
             moveClamp = slowMax;
-            UIManager.instance.UpdateMoveMode("Slow");
             if(!lockMovment) {
                 slowTrigger.gameObject.SetActive(true);
                 normalTrigger.gameObject.SetActive(false);
@@ -250,7 +249,6 @@ public class Player : MonoBehaviour
         } else if (movementMode == 1) {
             moveSpeed = moveSpeedNormal;
             moveClamp = normalMax;
-            UIManager.instance.UpdateMoveMode("Normal");
             if(!lockMovment) {
                 normalTrigger.gameObject.SetActive(true);
                 slowTrigger.gameObject.SetActive(false);
@@ -259,13 +257,14 @@ public class Player : MonoBehaviour
         } else if (movementMode == 2) {
             moveSpeed = moveSpeedFast;
             moveClamp = fastMax;
-            UIManager.instance.UpdateMoveMode("Fast");
             if(!lockMovment) {
                 fastTrigger.gameObject.SetActive(true);
                 normalTrigger.gameObject.SetActive(false);
                 slowTrigger.gameObject.SetActive(false);
             }
         }
+
+        UIManager.instance.UpdateMoveMode(movementMode);
     }
 
     public void EnterHide() {

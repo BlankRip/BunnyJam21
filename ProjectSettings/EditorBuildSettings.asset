@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/A_Blank/Scenes/MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: a07361464df742746b76fd1ac84b9552
   - enabled: 1
     path: Assets/A_Blank/Scenes/AI_UnderCover.unity
     guid: 401e4090ac6078a4a918215d5b06bece
   - enabled: 1
-    path: Assets/A_Blank/Scenes/Victory.unity
+    path: Assets/Scenes/Victory.unity
     guid: c05c16c8cfc72b94cae54909b7a84e3c
   m_configObjects: {}
