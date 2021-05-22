@@ -44,6 +44,14 @@ public class Player : MonoBehaviour
     public Animator myAnimator;
     private bool dead = false;
 
+
+    [SerializeField] public Material PEMat;
+    float wavePowerControllLerp;
+    int iteration = 0;
+    float tWave;
+    float tWaveMin = 1;
+    float tWaveMax = 100;
+
     private void Start() {
         cc = GetComponent<CharacterController>();
         UIManager.instance.InitilizeUI();
@@ -88,14 +96,42 @@ public class Player : MonoBehaviour
             horizontalInput = verticalInput = 0;
         }
 
-        if(watchUsed) {
+        PEMat.SetFloat("_WaveStrength", wavePowerControllLerp);
+
+        if (watchUsed) {
             cooldownRef += GameManager.instance.delta;
             UIManager.instance.WatchRecovering(watchCooldown, cooldownRef);
-            if(cooldownRef >= watchCooldown) {
-                Time.timeScale = 1;
-                cooldownRef = 0;
-                //UIManager.instance.WatchReady();
-                watchUsed = false;
+            if (cooldownRef >= (watchCooldown/2))
+            {
+                if (iteration <= 1)
+                {
+                    wavePowerControllLerp = Mathf.Lerp(tWaveMax, tWaveMin, tWave);
+
+                    tWave += (GameManager.instance.delta / ((watchCooldown/2)/2));
+
+                    if (tWave > 1)
+                    {
+                        float temp = tWaveMax;
+                        tWaveMax = tWaveMin;
+                        tWaveMin = temp;
+                        tWave = 0.0f;
+                        iteration++;
+                    }
+                }
+                if (cooldownRef >= watchCooldown)
+                {
+                    Time.timeScale = 1;
+                    cooldownRef = 0;
+                    //UIManager.instance.WatchReady();
+                    watchUsed = false;
+                    
+                    wavePowerControllLerp = 0;
+                    tWave = 0;
+                    tWaveMax = 100;
+                    tWaveMin = 1;
+                    iteration = 0;
+                    
+                }
             }
         }
 
