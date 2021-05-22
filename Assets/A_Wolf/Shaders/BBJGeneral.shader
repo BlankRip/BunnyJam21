@@ -43,13 +43,13 @@ Shader "BBJ/General"
         UNITY_INSTANCING_BUFFER_END(Props)
 
         half4 LightingSimpleLambert (SurfaceOutput s, half3 lightDir, half atten) {
-            half NdotL = saturate(floor(dot (s.Normal, lightDir) * stepCount)/stepCount);
+            half NdotL = saturate(floor(dot (s.Normal, lightDir) * atten * stepCount)/stepCount);
             half4 c;
             fixed3 soundDir = wavePos - waveOrigin;
             fixed rayLength = length(soundDir);
             fixed soundRing = saturate(min(waveSpread - rayLength, 1) * max(sin((rayLength - _Time.x * soundSpeed) * 10), 0));
 
-            fixed3 normalLook = s.Albedo * _LightColor0.rgb * (NdotL * lerp(shadowColor, 1, atten)) + waveColor * soundRing * soundStrength;
+            fixed3 normalLook = s.Albedo * (lerp(shadowColor, _LightColor0.rgb, atten)) + waveColor * soundRing * soundStrength;
 
             // c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
             fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = max(dot (s.Normal, lightDir), 0) * (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;
