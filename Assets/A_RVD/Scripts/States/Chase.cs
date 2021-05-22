@@ -31,31 +31,35 @@ public class Chase : AI_State
             Debug.LogError(mag);
             distance = (GameManager.instance.playerScript.transform.position - ai.transform.position).sqrMagnitude;
             if(distance <= catchDistance * catchDistance) {
-                GameManager.instance.playerScript.LockMovement();
-                GameManager.instance.playerScript.Zap();
-                if(mag.z < 0)
-                {
-                    ai.agent.enabled = false;
-                    Vector3 pos = new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, 
-                    ai.gameObject.transform.position.y, GameManager.instance.playerScript.gameObject.transform.position.z + 0.5f);
-                    ai.transform.LookAt(new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, ai.gameObject.transform.rotation.y, GameManager.instance.playerScript.gameObject.transform.position.z));
-                    ai.gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
-                    ai.gameObject.transform.position = pos;
-                    GameManager.instance.playerScript.PositionMeAlt(ai, 0);
+                if(!GameManager.instance.inHiding) {
+                    GameManager.instance.playerScript.LockMovement();
+                    GameManager.instance.playerScript.Zap();
+                    if(mag.z < 0)
+                    {
+                        ai.agent.enabled = false;
+                        Vector3 pos = new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, 
+                        ai.gameObject.transform.position.y, GameManager.instance.playerScript.gameObject.transform.position.z + 0.5f);
+                        ai.transform.LookAt(new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, ai.gameObject.transform.rotation.y, GameManager.instance.playerScript.gameObject.transform.position.z));
+                        ai.gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+                        ai.gameObject.transform.position = pos;
+                        GameManager.instance.playerScript.PositionMeAlt(ai, 0);
+                    }
+                    else if(mag.z > 0)
+                    {
+                        ai.agent.enabled = false;
+                        Vector3 pos = new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, 
+                        ai.gameObject.transform.position.y, GameManager.instance.playerScript.gameObject.transform.position.z - 0.5f);
+                        ai.transform.LookAt(new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, ai.gameObject.transform.rotation.y, GameManager.instance.playerScript.gameObject.transform.position.z));
+                        ai.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+                        ai.gameObject.transform.position = pos;
+                        GameManager.instance.playerScript.PositionMeAlt(ai, 180);
+                    }
+                    ai.myAnimator.SetTrigger("attack");
+                    caughtPlayer = true;
+                    return;
+                } else {
+                    ai.SwitchState(connections[0]);
                 }
-                else if(mag.z > 0)
-                {
-                    ai.agent.enabled = false;
-                    Vector3 pos = new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, 
-                    ai.gameObject.transform.position.y, GameManager.instance.playerScript.gameObject.transform.position.z - 0.5f);
-                    ai.transform.LookAt(new Vector3(GameManager.instance.playerScript.gameObject.transform.position.x, ai.gameObject.transform.rotation.y, GameManager.instance.playerScript.gameObject.transform.position.z));
-                    ai.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-                    ai.gameObject.transform.position = pos;
-                    GameManager.instance.playerScript.PositionMeAlt(ai, 180);
-                }
-                ai.myAnimator.SetTrigger("attack");
-                caughtPlayer = true;
-                return;
             }
 
             chasePos = GameManager.instance.playerScript.transform.position;

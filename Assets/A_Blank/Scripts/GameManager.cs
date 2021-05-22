@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public Player playerScript;
     public bool paused;
     public bool readyToLeave;
+    public bool inHiding;
+    public int onPlayersAss;
     private int currentPickups;
     private int pickups;
 
@@ -23,6 +25,8 @@ public class GameManager : MonoBehaviour
             pickups = FindObjectsOfType<PickUp>().Length;
             Time.timeScale = 1;
             readyToLeave = false;
+            inHiding = false;
+            onPlayersAss = 0;
         }
     }
 
