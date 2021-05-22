@@ -77,8 +77,8 @@ MonoBehaviour:
   idleTime: 3
   investigateTime: 3
   searchTime: 8
-  walkSpeed: 4
-  chaseSpeed: 9
+  walkSpeed: 2
+  chaseSpeed: 6
   waypoints: []
   loopWaypoints: 0
   fieldOfViewAngle: 90
@@ -135,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 1682555534572710078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.97}
-  m_LocalScale: {x: 0.30663237, y: 0.27280396, z: 1.5351255}
+  m_LocalScale: {x: 0.44007877, y: 0.27280396, z: 1.5351255}
   m_Children: []
   m_Father: {fileID: 1682555534560009574}
   m_RootOrder: 1
@@ -273,7 +273,7 @@ MonoBehaviour:
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
   viewMeshFilter: {fileID: 849740733369987370}
-  inFOV: 0
+  mat: {fileID: 0}
 --- !u!33 &849740733369987370
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e6f87bed0406b94fa2718bf3275b5d0, type: 2}
+  - {fileID: 2100000, guid: 06a113a15213a484baa3063cc9be64ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

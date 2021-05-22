@@ -7,7 +7,7 @@ public class Idle : AI_State
     float idelingFor;
     public override void InitilizeState(AI ai) {
         if(ai.waypoints.Length > 1) {
-            if(Random.Range(0, 101) > 85) {
+            if(Random.Range(0, 101) < 76) {
                 ai.myAnimator.SetBool("idle", true);
             ai.myAnimator.SetBool("walk", false);
             ai.myAnimator.SetBool("run", true);

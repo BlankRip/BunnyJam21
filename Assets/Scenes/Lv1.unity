@@ -6334,10 +6334,6 @@ PrefabInstance:
       propertyPath: viewAngle
       value: 75
       objectReference: {fileID: 0}
-    - target: {fileID: 6056562848693723068, guid: 9a5392b5c0278ee4eb518b7554e2d118, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2268f5b05f450f746b03599283792804, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a5392b5c0278ee4eb518b7554e2d118, type: 3}
 --- !u!1001 &613322682
@@ -8195,10 +8191,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 9107712269429116720, guid: edea5c2fd00f53849898efcf0406a375, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2268f5b05f450f746b03599283792804, type: 2}
     - target: {fileID: 9131241910201849500, guid: edea5c2fd00f53849898efcf0406a375, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -11876,7 +11868,7 @@ GameObject:
   - component: {fileID: 1099069691}
   - component: {fileID: 1099069690}
   - component: {fileID: 1099069689}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hiding Garbage Bin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18261,10 +18253,6 @@ PrefabInstance:
       propertyPath: viewRadius
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 7567179421220495581, guid: 31824b687c5b93b48a36de5c0e729cce, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2268f5b05f450f746b03599283792804, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31824b687c5b93b48a36de5c0e729cce, type: 3}
 --- !u!1001 &1740186205

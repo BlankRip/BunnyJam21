@@ -86,7 +86,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7e6f87bed0406b94fa2718bf3275b5d0, type: 2}
+  - {fileID: 2100000, guid: 2268f5b05f450f746b03599283792804, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -291,8 +291,8 @@ MonoBehaviour:
   renderer: {fileID: 6815125483852052618}
   rimAmount: 0.6
   arriveRadius: 0.2
-  idleTime: 3
-  investigateTime: 3
+  idleTime: 5
+  investigateTime: 5
   searchTime: 2
   walkSpeed: 3.5
   chaseSpeed: 5
