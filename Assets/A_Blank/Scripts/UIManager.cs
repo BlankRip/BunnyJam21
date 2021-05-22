@@ -20,6 +20,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI dialogueTextSpace;
     public TypeWriteText currentWriter;
     public Sprite[] modes;
+    public TextMeshProUGUI currentPickups;
+    public TextMeshProUGUI totalPickups;
 
     private void Awake() {
         if(instance ==null)
