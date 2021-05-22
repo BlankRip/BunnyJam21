@@ -34,7 +34,7 @@ public class AI : MonoBehaviour
     [HideInInspector] public bool inChaseState;
     [HideInInspector] public Vector3 pointNoted;
     [HideInInspector] public Vector3 initialPos;
-    [HideInInspector] public Quaternion initialRotation;
+     public Quaternion initialRotation;
     [HideInInspector] protected bool dead;
     protected Chase chaseState;
 
