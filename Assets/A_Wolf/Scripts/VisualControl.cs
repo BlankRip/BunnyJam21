@@ -5,14 +5,14 @@ using UnityEngine;
 [ExecuteAlways]
 public class VisualControl : MonoBehaviour
 {
-    [SerializeField] [Range(0, 10)] int lightSteps;
-    [SerializeField] [Range(0, 1)] float effectState;
-    [SerializeField] [Range(0, 10)] float soundRadius;
-    [SerializeField] [Range(0, 1)] float soundStrength;
-    [SerializeField] [Range(0, 1)] float sounSpeed;
-    [SerializeField] Texture2D matrixTexture;
-    [SerializeField] Transform soundPoint;
-    [SerializeField] Color waveColor;
+    [Range(0, 10)] public int lightSteps;
+    [Range(0, 1)] public float effectState;
+    [Range(0, 10)] public float soundRadius;
+    [Range(0, 1)] public float soundStrength;
+    [Range(0, 1)] public float sounSpeed;
+    public Texture2D matrixTexture;
+    public Transform soundPoint;
+    public Color waveColor;
 
     void Start()
     {

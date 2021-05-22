@@ -53,11 +53,7 @@ Shader "BBJ/Enemy"
 
             // c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
             fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;
-            fixed scrollSpeed = 80;
-            fixed4 timeStop=0;
-            timeStop.xyz = _FlatEffect;
-            //  fixed4(0.1,0,0,0) * step(tex2Dlod(matrixTex, fixed4( ((atan2(soundDir.x, soundDir.z)/ 3.14) * 0.5 + 0.5) * 20, pow(range,2) - _Time.z, 0,0) * 0.5), 0.5));
-            c.rgb = lerp(normalLook, timeStop, timeShiftEffect);
+            c.rgb = lerp(normalLook, _FlatEffect, timeShiftEffect * 0.5);
             c.a = s.Alpha;
             return c;
         }
@@ -67,7 +63,8 @@ Shader "BBJ/Enemy"
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;
-            o.Emission = lerp(_KillMark * _RimGlow * step(saturate(dot (normalize(IN.viewDir), o.Normal)), 0.5), 0, timeShiftEffect);
+            fixed rimValue = saturate(dot (normalize(IN.viewDir), o.Normal));
+            o.Emission = lerp(_KillMark * _RimGlow * step(rimValue, 0.5) + 0.2 * _RimGlow * saturate(1 - rimValue), 0, timeShiftEffect);
             wavePos = IN.worldPos;
             viewDir = IN.viewDir;
             // Metallic and smoothness come from slider variables

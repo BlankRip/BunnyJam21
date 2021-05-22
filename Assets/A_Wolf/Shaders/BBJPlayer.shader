@@ -4,6 +4,7 @@ Shader "BBJ/Player"
     {
         _Color ("Color", Color) = (1,1,1,1)
         _FlatEffect ("Flat Color", Color) = (1,1,1,1)
+        _RimGlow("Rim Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
     }
     SubShader
@@ -43,7 +44,7 @@ Shader "BBJ/Player"
         half4 LightingSimpleLambert (SurfaceOutput s, half3 lightDir, half atten) {
             half NdotL = saturate(floor(dot (s.Normal, lightDir) * atten * stepCount)/stepCount);
             half4 c;
-           
+            
             fixed3 normalLook = s.Albedo * _LightColor0.rgb * (NdotL * atten);
 
             // c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
@@ -62,7 +63,7 @@ Shader "BBJ/Player"
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             o.Albedo = c.rgb;
-            o.Emission = lerp(_KillMark * _RimGlow * step(saturate(dot (normalize(IN.viewDir), o.Normal)), 0.5), 0, timeShiftEffect);
+            o.Emission = lerp( 0.2 * _RimGlow * step(saturate(dot (normalize(IN.viewDir), o.Normal)), 0.5), 0, timeShiftEffect);
             wavePos = IN.worldPos;
             viewDir = IN.viewDir;
             // Metallic and smoothness come from slider variables
