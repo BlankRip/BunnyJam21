@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.63
+  m_AmbientIntensity: 0.96
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.22356708, g: 0.754717, b: 0.6560132, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 8b6544da4c867f840a167e8f08c92c58, type: 2}
@@ -439,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6162,7 +6162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6256,7 +6256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11401,7 +11401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11552,7 +11552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14316,7 +14316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14406,7 +14406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16475,7 +16475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -18022,7 +18022,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1765189133
 Light:
   m_ObjectHideFlags: 0
@@ -18034,14 +18034,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.07628315, g: 0, b: 0.4433962, a: 1}
-  m_Intensity: 0.38
+  m_Color: {r: 0, g: 0.45778146, b: 0.5471698, a: 1}
+  m_Intensity: 1.25
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -18338,7 +18338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584962208040805976, guid: ed0676686873d1944969cacb71269626, type: 3}
       propertyPath: m_StaticEditorFlags
