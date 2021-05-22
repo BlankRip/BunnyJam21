@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 9129984306255306809}
   - component: {fileID: 9129984306255306814}
   - component: {fileID: 9129984306255306808}
+  - component: {fileID: 6862916360516457473}
+  - component: {fileID: 5539807046206767953}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -48,6 +50,8 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   paused: 0
   readyToLeave: 0
+  inHiding: 0
+  onPlayersAss: 0
   delta: 0
 --- !u!114 &9129984306255306814
 MonoBehaviour:
@@ -61,7 +65,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ba230e38fd9744e8506b852ed8a608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveModeText: {fileID: 0}
   watchButton: {fileID: 0}
   watchFill: {fileID: 0}
   killButton: {fileID: 0}
@@ -89,3 +92,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseObj: {fileID: 0}
+--- !u!114 &6862916360516457473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129984306255306813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f5788d47250c640b2b46a1a3314910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxLow: {fileID: -8262828010615026271, guid: 1f3fddf2437a9fd4dbd7427325fd8c1d, type: 2}
+  sfxNormal: {fileID: -5753929751365131813, guid: 1f3fddf2437a9fd4dbd7427325fd8c1d, type: 2}
+  sfxLoud: {fileID: 4890198023915595937, guid: 1f3fddf2437a9fd4dbd7427325fd8c1d, type: 2}
+--- !u!114 &5539807046206767953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9129984306255306813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7a1c2fce191bd4caa50aebbecd9734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGroundAudio: {fileID: 0}
+  sfxAudio: {fileID: 0}
