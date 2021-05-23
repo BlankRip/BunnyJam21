@@ -54,9 +54,11 @@ public class Patrol : AI_State
             //^cycling to the start if necessary.
             if (ai.loopWaypoints) {
                 destPoint = (destPoint + 1) % ai.waypoints.Length;
-                ai.agent.destination = ai.waypoints[destPoint].position;
-                if(destPoint == 1)
+                if(destPoint == 1) {
                     ai.SwitchState(connections[0]);
+                    return;
+                }
+                ai.agent.destination = ai.waypoints[destPoint].position;
             } else {
                 if (reverse == false && destPoint == ai.waypoints.Length - 1) {
                     reverse = true;
@@ -71,13 +73,15 @@ public class Patrol : AI_State
                 else
                     destPoint += 1;
 
-                //^Set the agent to go to the currently selected destination.
-                ai.agent.destination = ai.waypoints[destPoint].position;
 
                 if(goIdle) {
                     goIdle = false;
                     ai.SwitchState(connections[0]);
+                    return;
                 }
+
+                //^Set the agent to go to the currently selected destination.
+                ai.agent.destination = ai.waypoints[destPoint].position;
             }
         }        
     }
