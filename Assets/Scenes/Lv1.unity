@@ -23274,6 +23274,10 @@ PrefabInstance:
       propertyPath: effectState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 120598971662352404, guid: 09e5eae92325bc949a9e18f1d7ad16aa, type: 3}
+      propertyPath: soundRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 120598971662352405, guid: 09e5eae92325bc949a9e18f1d7ad16aa, type: 3}
       propertyPath: m_Name
       value: VisualControl

@@ -60,7 +60,7 @@ Shader "BBJ/General"
             tex2Dlod(matrixTex, fixed4(wavePos.x * 10 - unscaledTime * scrollSpeed, wavePos.z * 10 + unscaledTime * scrollSpeed,1,1) * 0.005).r * 2
             ), 2), 0.3)) * atten;
             //  fixed4(0.1,0,0,0) * step(tex2Dlod(matrixTex, fixed4( ((atan2(soundDir.x, soundDir.z)/ 3.14) * 0.5 + 0.5) * 20, pow(range,2) - _Time.z, 0,0) * 0.5), 0.5));
-            c.rgb = lerp(normalLook, timeStop, saturate(timeShiftEffect));
+            c.rgb = lerp(normalLook, pow(timeStop * 1.5, 2), saturate(timeShiftEffect));
             c.a = s.Alpha;
             return c;
         }
