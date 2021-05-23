@@ -12037,6 +12037,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -136.46655
       objectReference: {fileID: 0}
+    - target: {fileID: 3702180938029033635, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
+      propertyPath: m_RenderingPath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3702180938862122178, guid: 0cb00fb1c5d2c1c45864b61b7586ae38, type: 3}
       propertyPath: m_Name
       value: GameEssentials
