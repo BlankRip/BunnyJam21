@@ -28,7 +28,7 @@ Shader "BBJ/GeneralWSpace"
         };
 
 
-        uniform fixed3 waveOrigin, waveColor;
+        uniform fixed3 waveOrigin, waveColor, shadowColor;
         uniform fixed waveSpread = 10, soundStrength, soundSpeed, stepCount, timeShiftEffect;
         fixed3 wavePos, viewDir;
 
@@ -49,7 +49,7 @@ Shader "BBJ/GeneralWSpace"
             fixed rayLength = length(soundDir);
             fixed soundRing = saturate(min(waveSpread - rayLength, 1) * max(sin((rayLength - _Time.x * soundSpeed) * 10), 0));
 
-            fixed3 normalLook = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
+            fixed3 normalLook = s.Albedo * (lerp(shadowColor, _LightColor0.rgb, NdotL)) + waveColor * soundRing * soundStrength;
 
             // c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
             fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;

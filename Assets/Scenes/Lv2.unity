@@ -26479,7 +26479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620987842882465261, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.534
+      value: -7.99
       objectReference: {fileID: 0}
     - target: {fileID: 6620987842882465261, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26516,14 +26516,6 @@ PrefabInstance:
     - target: {fileID: 6620987842882465261, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620987842882465262, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
-      propertyPath: m_Center.x
-      value: 1.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6620987842882465262, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
-      propertyPath: m_Center.z
-      value: -0.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a2c438418fd214c8670b52742cc0ac, type: 3}
@@ -56897,7 +56889,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!108 &1765189133
 Light:
@@ -56910,8 +56902,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.05083655, g: 0.6415094, b: 0.41833532, a: 1}
-  m_Intensity: 0.93
+  m_Color: {r: 0, g: 1, b: 0.43154716, a: 1}
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -56921,7 +56913,7 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
+    m_Bias: 0.099
     m_NormalBias: 0.4
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
