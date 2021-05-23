@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 9c1dec6a54e37f041aab64f0c0e4d010
+  m_OcclusionCullingData: {fileID: 36300000, guid: ad8a362fc1aceb14bb0e594a8c133f07, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -10540,15 +10540,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 875435205307202244, guid: 518144c690b1d4b4b98d5b9fb507204c, type: 3}
       propertyPath: shadowColor.b
-      value: 0.17723897
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 875435205307202244, guid: 518144c690b1d4b4b98d5b9fb507204c, type: 3}
       propertyPath: shadowColor.g
-      value: 0.13656102
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 875435205307202244, guid: 518144c690b1d4b4b98d5b9fb507204c, type: 3}
       propertyPath: shadowColor.r
-      value: 0.5283019
+      value: 0.43529412
       objectReference: {fileID: 0}
     - target: {fileID: 875435205307202244, guid: 518144c690b1d4b4b98d5b9fb507204c, type: 3}
       propertyPath: soundStrength
