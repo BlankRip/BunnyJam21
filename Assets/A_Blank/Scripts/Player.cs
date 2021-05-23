@@ -123,6 +123,8 @@ public class Player : MonoBehaviour
                 {
                     Time.timeScale = 1;
                     cooldownRef = 0;
+                    UIManager.instance.WatchTimeEnd();
+                    VisualControl.instance.effectState = 0;
                     //UIManager.instance.WatchReady();
                     watchUsed = false;
                     
@@ -284,6 +286,7 @@ public class Player : MonoBehaviour
     }
 
     public void UseWatch() {
+        VisualControl.instance.effectState = 1;
         Time.timeScale = 0;
         GameAudio.instance.PlaySFxOneShot(freeze, MixerDataBase.instance.sfxNormal);
         UIManager.instance.WatchUsed();

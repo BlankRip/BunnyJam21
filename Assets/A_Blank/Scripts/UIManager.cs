@@ -42,6 +42,8 @@ public class UIManager : MonoBehaviour
 
     public void WatchReady() {
         watchButton.interactable = true;
+    }
+    public void WatchTimeEnd() {
         GameAudio.instance.PlaySFxOneShot(unfreeze, MixerDataBase.instance.sfxNormal);
     }
     public void WatchUsed() {
