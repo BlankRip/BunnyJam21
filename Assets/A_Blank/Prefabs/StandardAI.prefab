@@ -411,6 +411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quad
       objectReference: {fileID: 0}
+    - target: {fileID: 3363213992327222277, guid: ab2c9bde86b9d26438aa024d2f4c2a3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4238484421877022366, guid: ab2c9bde86b9d26438aa024d2f4c2a3f, type: 3}
       propertyPath: m_RootOrder
       value: 3
