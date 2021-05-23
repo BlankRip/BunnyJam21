@@ -78,16 +78,13 @@ public class AI : MonoBehaviour
             {
                 if (Physics.Raycast(transform.position, playerDir.normalized, out hit, fieldOfViewRange, playerAndObstacles))
                 {
-                    Debug.Log("Player within range!");
                     if (hit.collider != null && hit.collider.CompareTag("Player"))
                     {
-                        Debug.Log("Player Caught!");
                         Debug.DrawRay(transform.position, playerDir.normalized * hit.distance, Color.red);
                         inFOV = true;
                     }
                     else
                     {
-                        Debug.Log("Hit a obstacle!");
                         Debug.DrawRay(transform.position, playerDir.normalized * hit.distance, Color.black);
                         inFOV = false;
                     }
@@ -95,14 +92,12 @@ public class AI : MonoBehaviour
             }
             else
             {
-                Debug.Log("Out of range!");
                 Debug.DrawRay(transform.position, playerDir, Color.white);
                 inFOV = false;
             }
         }
         else
         {
-            Debug.Log("Did not hit anything!");
             Debug.DrawRay(transform.position, playerDir, Color.white);
             inFOV = false;
         }
