@@ -10,7 +10,7 @@ public class ExitTrigger : MonoBehaviour
         if(GameManager.instance.readyToLeave && other.CompareTag("Player")) {
             GameManager.instance.playerScript.LockMovement();
             UIManager.instance.ShowVictory();
-            GameAudio.instance.PlaySFxOneShot(drive, MixerDataBase.instance.sfxNormal);
+            GameAudio.instance.PlaySFxOneShot(drive, MixerDataBase.instance.sfxLoud);
         }
     }
 }
