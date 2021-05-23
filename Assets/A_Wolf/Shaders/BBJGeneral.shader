@@ -28,7 +28,7 @@ Shader "BBJ/General"
 
 
         uniform fixed3 waveOrigin, waveColor, shadowColor;
-        uniform fixed waveSpread = 10, soundStrength, soundSpeed, stepCount, timeShiftEffect;
+        uniform fixed waveSpread = 10, soundStrength, soundSpeed, stepCount, timeShiftEffect, unscaledTime;
         fixed3 wavePos, viewDir;
 
         half _Glossiness;
@@ -50,14 +50,14 @@ Shader "BBJ/General"
             fixed soundRing = saturate(min(waveSpread - rayLength, 1) * max(sin((rayLength - _Time.x * soundSpeed) * 10), 0));
 
             fixed3 normalLook = s.Albedo * (lerp(shadowColor, _LightColor0.rgb, NdotL)) + waveColor * soundRing * soundStrength;
-        //    fixed3 normalLook = lerp(shadowColor, _LightColor0.rgb, NdotL);
+            //    fixed3 normalLook = lerp(shadowColor, _LightColor0.rgb, NdotL);
             // c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten) + waveColor * soundRing * soundStrength;
             fixed bwValue = ((s.Albedo.r + s.Albedo.g + s.Albedo.b) / 3) , lightLvl = max(dot (s.Normal, lightDir), 0) * (_LightColor0.r + _LightColor0.g + _LightColor0.b)/3;
             fixed scrollSpeed = 80;
             fixed4 timeStop = 0;
             timeStop.xyz = (bwValue * lightLvl + fixed3(0.3,0.3,0.3) * max(pow(saturate(
-            tex2Dlod(matrixTex, fixed4(wavePos.x * 10 + _Time.y * scrollSpeed, wavePos.z * 10 - _Time.y * scrollSpeed,1,1) * 0.01).r *
-            tex2Dlod(matrixTex, fixed4(wavePos.x * 10 - _Time.y * scrollSpeed, wavePos.z * 10 + _Time.y * scrollSpeed,1,1) * 0.005).r * 2
+            tex2Dlod(matrixTex, fixed4(wavePos.x * 10 + unscaledTime * scrollSpeed, wavePos.z * 10 - unscaledTime * scrollSpeed,1,1) * 0.01).r *
+            tex2Dlod(matrixTex, fixed4(wavePos.x * 10 - unscaledTime * scrollSpeed, wavePos.z * 10 + unscaledTime * scrollSpeed,1,1) * 0.005).r * 2
             ), 2), 0.3)) * atten;
             //  fixed4(0.1,0,0,0) * step(tex2Dlod(matrixTex, fixed4( ((atan2(soundDir.x, soundDir.z)/ 3.14) * 0.5 + 0.5) * 20, pow(range,2) - _Time.z, 0,0) * 0.5), 0.5));
             c.rgb = lerp(normalLook, timeStop, saturate(timeShiftEffect));

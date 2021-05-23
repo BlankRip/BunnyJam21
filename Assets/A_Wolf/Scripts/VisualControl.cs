@@ -29,6 +29,7 @@ public class VisualControl : MonoBehaviour
         Shader.SetGlobalFloat("timeShiftEffect", effectState);
         Shader.SetGlobalFloat("waveSpread", soundRadius);
         Shader.SetGlobalFloat("soundStrength", soundStrength);
+        Shader.SetGlobalFloat("unscaledTime", Time.unscaledTime);
         Shader.SetGlobalFloat("soundSpeed", sounSpeed);
         Shader.SetGlobalVector("waveOrigin", soundPoint.position);
         Shader.SetGlobalVector("waveColor", waveColor);
